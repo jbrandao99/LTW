@@ -1,0 +1,60 @@
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 1em;
+  padding: 1em;
+}
+
+p {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+header {
+  background-color: #046dd5;
+  color: white;
+}
+
+#related {
+  background-color: #2a2f33;
+  color: white;
+}
+
+section#news footer {
+  background-color: #f4655f;
+  color: white;
+}
+
+footer {
+  background-color: #2a2f33;
+}
+
+nav#menu li:nth-child(1) {
+  border-top: 3px solid #e1493e;
+}
+
+nav#menu li:nth-child(2) {
+  border-top: 3px solid #8aba56;
+}
+
+nav#menu li:nth-child(3) {
+  border-top: 3px solid #5b4282;
+}
+
+nav#menu li:nth-child(4) {
+  border-top: 3px solid #ff8932;
+}
+
+nav#menu li:nth-child(5) {
+  border-top: 3px solid #19b6e9;
+}
+
+nav#menu li:nth-child(6) {
+  border-top: 3px solid #e84c8b;
+}
+
+nav#menu input {
+  display: none;
+}
+
+nav#menu label {
+  display: none;
+}
