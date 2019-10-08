@@ -1,60 +1,203 @@
-* {
+#menu > input,
+#menu > label {
+  display: none;
+}
+
+/* Remove lines from links */
+a {
+  text-decoration: none;
+}
+
+/* Fonts */
+header,
+h1 a,
+ul {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  margin: 1em;
-  padding: 1em;
 }
 
 p {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
-header {
-  background-color: #046dd5;
+/* 
+/////////////////////////
+HEADER
+/////////////////////////
+*/
+
+/* Super Legit News & Register Login */
+body > header > h1 > a,
+#signup > a {
   color: white;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+section#news > header > h1 > a {
+  color: white;
+}
+
+body > footer {
+  margin: 0em 7.5em;
+}
+
+body > footer > p {
+  padding: 1em;
+}
+
+/* Where fake news... */
+body > header > h2 > a {
+  color: white;
+  font-size: 0.6em;
+  font-weight: bold;
+}
+
+/* Change space between Super Legit News and Where fake news ... */
+body > header > h1 {
+  height: 1em;
+}
+
+/* BOX of Super Legit News, Where the ..., Register Login*/
+body > header {
+  background-color: #046dd5;
+  border-width: 0em 0em 0.25em 0em;
+  margin: 0em 7.5em;
+  padding: 1em 0em 1em 1em;
+  display: block;
+}
+
+body > header > * {
+  margin: 0px 0px;
+}
+
+#signup {
+  margin-left: 35em;
+}
+
+/* Register box */
+#signup a:first-child {
+  padding: 0em 1em 0em 0em;
+  border: solid white;
+  border-width: 0em 0.1em 0em 0em;
+}
+
+/* Login box */
+#signup a:last-child {
+  padding: 0em 0em 0em 1em;
+}
+
+/* 
+/////////////////////////
+MENU 
+/////////////////////////
+*/
+
+ul {
+  list-style-type: none;
+  margin-left: 5em;
+  margin-block-start: 0em;
+}
+
+li {
+  border: solid;
+  border-width: 0.3em 0em 0em 0em;
+  padding: 1.05em 1em;
+  text-align: center;
+  font-weight: bold;
+}
+
+ul {
+  margin-bottom: -2em;
+}
+
+li:nth-child(1) {
+  border-top-color: #e1493e;
+}
+
+li:nth-child(2) {
+  border-top-color: #8aba56;
+}
+
+li:nth-child(3) {
+  border-top-color: #5b4282;
+}
+
+li:nth-child(4) {
+  border-top-color: #ff8932;
+}
+
+li:nth-child(5) {
+  border-top-color: #19b6e9;
+}
+
+li:nth-child(6) {
+  border-top-color: #e84c8b;
+  padding-bottom: 0em;
+}
+
+img {
+  width: 79em;
+}
+
+/* Local, World, Politics, ... */
+#menu a {
+  color: black;
 }
 
 #related {
+  padding: 1em;
+  margin: 2em 7.5em;
   background-color: #2a2f33;
+}
+
+#news {
+  margin-top: -2.5em;
+  margin-left: 7.5em;
+  margin-right: 7.5em;
+}
+
+#related * {
   color: white;
 }
 
-section#news footer {
-  background-color: #f4655f;
+#news h1 > a {
+  color: white;
+}
+
+footer * {
   color: white;
 }
 
 footer {
+  background-color: #f4655f;
+  margin-bottom: 1em;
+}
+
+footer > p {
   background-color: #2a2f33;
 }
 
-nav#menu li:nth-child(1) {
-  border-top: 3px solid #e1493e;
+footer a {
+  text-decoration: underline;
 }
 
-nav#menu li:nth-child(2) {
-  border-top: 3px solid #8aba56;
+section#news footer {
+  padding: 1em;
 }
 
-nav#menu li:nth-child(3) {
-  border-top: 3px solid #5b4282;
+section#news header h1 {
+  position: absolute;
+  padding-left: 1em;
+  text-shadow: 3px 3px 3px #2a2f33;
+  margin-right: 60em;
 }
 
-nav#menu li:nth-child(4) {
-  border-top: 3px solid #ff8932;
+section#news article p:first-of-type::first-letter {
+  font-size: 2em;
 }
 
-nav#menu li:nth-child(5) {
-  border-top: 3px solid #19b6e9;
-}
-
-nav#menu li:nth-child(6) {
-  border-top: 3px solid #e84c8b;
-}
-
-nav#menu input {
-  display: none;
-}
-
-nav#menu label {
-  display: none;
+section#news article p {
+  margin: 1em;
+  line-height: 1.5em;
+  text-align: justify;
 }
