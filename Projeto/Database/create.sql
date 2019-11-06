@@ -1,35 +1,68 @@
-drop table if exists users;
-drop table if exists owners;
-drop table if exists tourists;
-drop table if exists rentals;
+DROP TABLE IF EXISTS Users;
+DROP TABLE IF EXISTS Owners;
+DROP TABLE IF EXISTS Tourists;
+DROP TABLE IF EXISTS Properties;
+DROP TABLE IF EXISTS Messages;
+DROP TABLE IF EXISTS Comments;
+DROP TABLE IF EXISTS Reservations;
+DROP TABLE IF EXISTS Photos;
 
-create table users
+CREATE TABLE Users
 (
-    users_id integer primary key,
-    users_username varchar not null unique,
-    users_email varchar not null unique,
-    users_password varchar not null check(length(users_password) <= 20),
-    users_name varchar not null,
-    users_gender varchar not null check(users_gender = 'M' or users_gender = 'F'),
-    users_borning_date date not null
+    userID INTEGER PRIMARY KEY,
+    userUsername VARCHAR NOT NULL UNIQUE,
+    userEmail VARCHAR NOT NULL UNIQUE,
+    userPassword VARCHAR NOT NULL,
+    userName VARCHAR NOT NULL,
+    userGender CHAR NOT NULL CHECK(userGender = 'M' OR userGender = 'F' OR userGender = 'O'),
+    userBorningDate DATE NOT NULL,
+    userProfilePicture VARCHAR
 );
 
-create table owners
+CREATE TABLE Owners
 (
-    owners_id integer primary key references users
+    ownerID INTEGER PRIMARY KEY REFERENCES Users
 );
 
-create table tourists
+CREATE TABLE Tourists
 (
-    tourists_id integer primary key references users
+    touristID INTEGER PRIMARY KEY REFERENCES Users
 );
 
-create table rentals
+CREATE TABLE Properties
 (
-    rentals_id integer primary key,
-    rentals_price float not null,
-    rentals_title varchar not null,
-    rentals_published integer not null,
-    rentals_location varchar not null,
-    rentals_description varchar not null
+    propertyID INTEGER PRIMARY KEY,
+    propertyPrice FLOAT NOT NULL,
+    propertyTitle VARCHAR NOT NULL,
+    propertyLocation VARCHAR NOT NULL,
+    propertyDescription VARCHAR NOT NULL,
+    ownerID INTEGER NOT NULL REFERENCES Owners
+);
+
+CREATE TABLE Messages
+(
+    messageID INTEGER PRIMARY KEY,
+    messageText VARCHAR NOT NULL,
+
+);
+
+CREATE TABLE Comments
+(
+    commentID INTEGER PRIMARY KEY,
+    commentText VARCHAR NOT NULL,
+    commentRating INTEGER NOT NULL CHECK (commentRating > 1 AND commentRating <= 5)
+);
+
+CREATE TABLE Reservations
+(
+    reservationID INTEGER PRIMARY KEY,
+    reservationBeginDate DATE NOT NULL,
+    reservationEndDate DATE NOT NULL,
+    reservationPrice FLOAT NOT NULL
+);
+
+CREATE TABLE Photos
+(
+    photoID INTEGER PRIMARY KEY,
+    photoDescription VARCHAR NOT NULL
 );
