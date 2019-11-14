@@ -15,7 +15,7 @@ CREATE TABLE Users
     userPassword VARCHAR NOT NULL,
     userName VARCHAR NOT NULL,
     userGender CHAR NOT NULL CHECK(userGender = 'M' OR userGender = 'F' OR userGender = 'O'),
-    userBorningDate DATE NOT NULL,
+    userBirthDate DATE NOT NULL,
     userProfilePicture VARCHAR
 );
 
@@ -29,13 +29,13 @@ CREATE TABLE Tourists
     touristID INTEGER PRIMARY KEY REFERENCES Users
 );
 
-CREATE TABLE Properties
+CREATE TABLE Rental
 (
-    propertyID INTEGER PRIMARY KEY,
-    propertyPrice FLOAT NOT NULL,
-    propertyTitle VARCHAR NOT NULL,
-    propertyLocation VARCHAR NOT NULL,
-    propertyDescription VARCHAR NOT NULL,
+    rentalID INTEGER PRIMARY KEY,
+    rentalPrice FLOAT NOT NULL,
+    rentalTitle VARCHAR NOT NULL,
+    rentalLocation VARCHAR NOT NULL,
+    rentalDescription VARCHAR NOT NULL,
     ownerID INTEGER NOT NULL REFERENCES Owners
 );
 
@@ -44,6 +44,13 @@ CREATE TABLE Messages
     messageID INTEGER PRIMARY KEY,
     messageText VARCHAR NOT NULL,
 
+);
+
+CREATE TABLE Replies
+(
+    replyID INTEGER PRIMARY KEY,
+    replyText VARCHAR NOT NULL,
+    replyRating INTEGER NOT NULL CHECK (replyRating > 1 AND replyRating <= 5)
 );
 
 CREATE TABLE Comments
