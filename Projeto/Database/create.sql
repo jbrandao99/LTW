@@ -35,6 +35,8 @@ CREATE TABLE Properties
     title VARCHAR NOT NULL,
     location VARCHAR NOT NULL,
     description VARCHAR NOT NULL,
+    availabilityStart DATE NOT NULL,
+    availabilityEnd DATE NOT NULL,
     ownerID INTEGER NOT NULL REFERENCES Owners
 );
 
