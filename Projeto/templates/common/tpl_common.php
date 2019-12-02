@@ -1,0 +1,59 @@
+<?php function draw_header($username) { 
+/**
+ * Draws the header for all pages. Receives an username
+ * if the user is logged in in order to draw the logout
+ * link.
+ */?>
+  <!DOCTYPE html>
+  <html>
+
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="shortcut icon" href="../images/site/accusoft.png">
+    <script src="https://kit.fontawesome.com/bb66e67d26.js" crossorigin="anonymous"></script>
+    <title>Rent-a-Place</title>
+</head>
+
+    <body>
+
+      <header>
+        <h1><a href="login.php" ><i class="fab fa-accusoft"></i> Rent-a-Place</a></h1>
+        <?php if ($username != NULL) { ?>
+          <nav>
+            <ul>
+              <li><?=$username?></li>
+              <li><a href="../actions/action_logout.php">Logout</a></li>
+            </ul>
+          </nav>
+        <?php } ?>
+      </header>
+      <?php if (isset($_SESSION['messages'])) {?>
+        <section id="messages">
+          <?php foreach($_SESSION['messages'] as $message) { ?>
+            <div class="<?=$message['type']?>"><?=$message['content']?></div>
+          <?php } ?>
+        </section>
+      <?php unset($_SESSION['messages']); } ?>
+<?php } ?>
+
+<?php function draw_footer() { 
+/**
+ * Draws the footer for all pages.
+ */ ?>
+    <footer>
+      &copy; 2019 Rent-a-Place
+        <ul>
+            <li>
+                <a href="aboutUs.php">About Us</a>
+            </li>
+            <li>
+                <a href="contact.php">Contact</a>
+            </li>
+        </ul>
+    </footer>
+  </body>
+</html>
+<?php } ?>
