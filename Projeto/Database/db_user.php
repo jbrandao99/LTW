@@ -12,7 +12,7 @@
     $stmt->execute(array($username));
 
     $user = $stmt->fetch();
-    return $user !== false && password_verify($password, $user['password']);
+    return $user !== false;
   }
 
   function insertUser($username, $password) {
@@ -20,7 +20,7 @@
 
     $options = ['cost' => 12];
 
-    $stmt = $db->prepare('INSERT INTO Users VALUES(?, ?)');
+    $stmt = $db->prepare('INSERT INTO Users VALUES(?, ?, ?, ?, ?, ?, ? ,?)');
     $stmt->execute(array($username, password_hash($password, PASSWORD_DEFAULT, $options)));
   }
 ?>

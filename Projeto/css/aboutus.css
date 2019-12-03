@@ -1,0 +1,36 @@
+.aboutus p {
+  background-color: #0088a9;
+}
+
+.aboutus::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.authors {
+  background-color: #0088a9;
+  float: left;
+  width: 33.33%;
+  text-align: center;
+}
+
+h3 {
+  color: #edf0f1;
+  background-color: #0088a9;
+  padding: 30px 10%;
+}
+
+.authors p {
+  color: #24252a;
+  padding: 30px 10%;
+}
+
+@media screen and (max-width: 800px) {
+  .authors {
+    width: 100%;
+  }
+  .main_footer {
+    position: relative;
+  }
+}

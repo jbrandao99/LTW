@@ -2,7 +2,7 @@
 /**
  * Draws the login section.
  */ ?>
-  <section id="login">
+  <section class="login">
     
     <header><h2>Welcome Back</h2></header>
 
@@ -23,13 +23,15 @@
 /**
  * Draws the signup section.
  */ ?>
-  <section id="signup">
+  <section class="signup">
 
     <header><h2>New Account</h2></header>
 
     <form method="post" action="../actions/action_signup.php">
+      <input type="text" name="name" placeholder="full name" required>
       <input type="text" name="username" placeholder="username" required>
       <input type="password" name="password" placeholder="password" required>
+      <input type="email" name="email" placeholder="email address" required>
       <input type="submit" value="Signup">
     </form>
 

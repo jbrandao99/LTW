@@ -1,0 +1,91 @@
+.main_header {
+  margin: 30px 10%;
+}
+
+#header_links {
+  list-style: none;
+}
+
+#header_links li {
+  display: inline-block;
+}
+
+#header_links .right_links {
+  padding: 0px 20px;
+}
+
+h1 a {
+  font-size: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease 0s;
+  color: #0088a9;
+}
+
+h1 a:hover {
+  font-size: 35px;
+  color: #edf0f1;
+}
+
+.right_links {
+  float: right;
+}
+
+.right_links a {
+  transition: all 0.3s ease 0s;
+  font-size: 15px;
+  color: #edf0f1;
+  text-decoration: none;
+}
+
+.right_links a:hover {
+  color: #0088a9;
+}
+
+#search input {
+  color: #edf0f1;
+  padding: 15px 20px;
+  margin: 5px 0;
+  box-sizing: border-box;
+  font-size: 15px;
+  background-color: #0088a9;
+  border: none;
+  border-radius: 5px;
+}
+
+#search input::placeholder {
+  color: #edf0f1;
+}
+
+#search input:hover {
+  border: 1px solid #edf0f1;
+}
+
+#search button {
+  padding: 15px 20px;
+  margin-right: 5px 0;
+  color: #edf0f1;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+#search button:hover {
+  color: #0088a9;
+}
+
+body > #messages div {
+  width: 100%;
+  padding: 30px 10%;
+  text-align: center;
+}
+
+body > #messages .error {
+  color: #d8000c;
+  background-color: #ffd2d2;
+}
+
+body > #messages .success {
+  color: #4f8a10;
+  background-color: #dff2bf;
+}

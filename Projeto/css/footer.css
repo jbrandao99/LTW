@@ -1,0 +1,27 @@
+.main_footer {
+  color: #edf0f1;
+  padding: 15px 10%;
+  font-size: 13px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+#footer_links li {
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+.footer_right {
+  float: right;
+}
+
+.footer_right a {
+  text-decoration: none;
+  color: #edf0f1;
+  transition: all 0.3s ease 0s;
+}
+
+.footer_right a:hover {
+  color: #0088a9;
+}

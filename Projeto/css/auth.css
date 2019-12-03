@@ -1,0 +1,84 @@
+form {
+  background-color: #0088a9;
+  padding-right: 10%;
+  padding-left: 10%;
+  font-weight: 500;
+  color: #edf0f1;
+}
+
+h2 {
+    color: #edf0f1;
+    background-color: #0088a9;
+    padding: 30px 10%;
+    text-align: center;
+}
+
+input {
+  width: 100%;
+  color: #edf0f1;
+  padding: 15px 20px;
+  margin: 5px 0;
+  box-sizing: border-box;
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+}
+
+input:focus {
+  border: 2px solid #edf0f1;
+}
+
+input[type="submit"] {
+  color: #0088a9;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 15px 20px;
+  border: 2px solid #24252a;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  background-color: #edf0f1;
+  transition: all 0.3s ease 0s;
+  width: 100%;
+}
+
+input[type="submit"]:hover {
+  box-shadow: 0 13px 15px 0 rgba(0, 0, 0, 0.2);
+}
+
+.login footer p {
+    background-color: #0088a9;
+    color: #edf0f1;
+    text-decoration: none;
+    padding: 10px 10%;
+}
+
+.login footer a {
+    background-color: #0088a9;
+    color: #edf0f1;
+    text-decoration: none;
+    transition: all 0.3s ease 0s;
+}
+
+.login footer a:hover {
+    font-size: 20px;
+}
+
+.signup footer p {
+    background-color: #0088a9;
+    color: #edf0f1;
+    text-decoration: none;
+    padding: 10px 10%;
+}
+
+.signup footer a {
+    background-color: #0088a9;
+    color: #edf0f1;
+    text-decoration: none;
+    transition: all 0.3s ease 0s;
+}
+
+.signup footer a:hover {
+    font-size: 20px;
+}

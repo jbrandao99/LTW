@@ -1,0 +1,7 @@
+.profile input[type="submit"] {
+  margin-bottom: 10px;
+}
+
+.profile input[type="file"] {
+  display: none;
+}
