@@ -15,12 +15,12 @@
     return $user !== false;
   }
 
-  function insertUser($username, $password) {
+  function insertUser($username, $email, $password, $name) {
     $db = Database::instance()->db();
 
     $options = ['cost' => 12];
 
-    $stmt = $db->prepare('INSERT INTO Users VALUES(?, ?, ?, ?, ?, ?, ? ,?)');
-    $stmt->execute(array($username, password_hash($password, PASSWORD_DEFAULT, $options)));
+    $stmt = $db->prepare('INSERT INTO Users VALUES(NULL, ?, ?, ?, ?,NULL)');
+    $stmt->execute(array($username,$email, password_hash($password, PASSWORD_DEFAULT, $options),$name));
   }
-?>
+?>0

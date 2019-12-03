@@ -1,5 +1,5 @@
 --
--- File generated with SQLiteStudio v3.2.1 on Fri Nov 22 17:11:21 2019
+-- File generated with SQLiteStudio v3.2.1 on Tue Dec 3 18:13:23 2019
 --
 -- Text encoding used: UTF-8
 --
@@ -48,7 +48,7 @@ CREATE TABLE Photos (
     id          INTEGER PRIMARY KEY,
     description VARCHAR NOT NULL,
     propertyID  INTEGER REFERENCES Properties (id) ON UPDATE CASCADE,
-    path        VARCHAR NOT NULL
+    path        TEXT    NOT NULL
 );
 
 INSERT INTO Photos (id, description, propertyID, path) VALUES (1, 'Bedroom 1', 4, '45646456.jpg');
@@ -164,44 +164,41 @@ CREATE TABLE Users (
                            UNIQUE,
     password       VARCHAR NOT NULL,
     name           VARCHAR NOT NULL,
-    gender         CHAR    NOT NULL
-                           CHECK (gender = 'M' OR 
-                                  gender = 'F' OR 
-                                  gender = 'O'),
-    birthDate      DATE    NOT NULL,
-    profilePicture VARCHAR
+    profilePicture TEXT
 );
 
-INSERT INTO Users (id, username, email, password, name, gender, birthDate, profilePicture) VALUES (1, 'cstocking0', 'cstocking0@blogger.com', 'hXiJi5ZHaZM', 'Celestyn Stocking', 'F', '27/11/1978', 'https://robohash.org/numquamnonest.jpg?size=50x50&set=set1');
-INSERT INTO Users (id, username, email, password, name, gender, birthDate, profilePicture) VALUES (2, 'spetrichat1', 'spetrichat1@utexas.edu', '05V30BY5z6', 'Sam Petrichat', 'M', '25/09/1978', 'https://robohash.org/veniaminventoreodio.jpg?size=50x50&set=set1');
-INSERT INTO Users (id, username, email, password, name, gender, birthDate, profilePicture) VALUES (3, 'cbewick2', 'cbewick2@eepurl.com', '0jVue5kcNMq', 'Cissiee Bewick', 'F', '29/04/1997', 'https://robohash.org/omnisutveniam.jpg?size=50x50&set=set1');
-INSERT INTO Users (id, username, email, password, name, gender, birthDate, profilePicture) VALUES (4, 'abolan3', 'abolan3@weebly.com', 'wCfzhUdljY0X', 'Antonio Bolan', 'M', '16/10/1975', 'https://robohash.org/necessitatibusperferendisvel.jpg?size=50x50&set=set1');
-INSERT INTO Users (id, username, email, password, name, gender, birthDate, profilePicture) VALUES (5, 'tlevick4', 'tlevick4@typepad.com', 'rv8I5c4', 'Tyler Levick', 'M', '27/02/1992', 'https://robohash.org/temporemagnamdolores.jpg?size=50x50&set=set1');
-INSERT INTO Users (id, username, email, password, name, gender, birthDate, profilePicture) VALUES (6, 'nle5', 'nle5@scientificamerican.com', 'M5wTwj', 'Nita Le Borgne', 'F', '07/04/1986', 'https://robohash.org/explicaboisteitaque.jpg?size=50x50&set=set1');
-INSERT INTO Users (id, username, email, password, name, gender, birthDate, profilePicture) VALUES (7, 'tosesnane6', 'tosesnane6@state.tx.us', '7VHno1', 'Tremaine O''Sesnane', 'M', '13/06/1988', 'https://robohash.org/totamquiaut.jpg?size=50x50&set=set1');
-INSERT INTO Users (id, username, email, password, name, gender, birthDate, profilePicture) VALUES (8, 'dpaoloni7', 'dpaoloni7@marriott.com', 'x7k1UhTu7sXE', 'Darlleen Paoloni', 'F', '03/12/1991', 'https://robohash.org/minimacumeligendi.jpg?size=50x50&set=set1');
-INSERT INTO Users (id, username, email, password, name, gender, birthDate, profilePicture) VALUES (9, 'eshore8', 'eshore8@bloglovin.com', 'qJ9h9se3n3q1', 'Eulalie Shore', 'F', '10/12/1972', 'https://robohash.org/providentpariaturadipisci.jpg?size=50x50&set=set1');
-INSERT INTO Users (id, username, email, password, name, gender, birthDate, profilePicture) VALUES (10, 'jklemz9', 'jklemz9@nsw.gov.au', 'q4bem4u7', 'Janette Klemz', 'F', '11/06/1992', 'https://robohash.org/enimametautem.jpg?size=50x50&set=set1');
-INSERT INTO Users (id, username, email, password, name, gender, birthDate, profilePicture) VALUES (11, 'lstelfoxa', 'lstelfoxa@fc2.com', 'jYHWVq3IiY4v', 'Layton Stelfox', 'M', '04/05/1989', 'https://robohash.org/architectoetet.jpg?size=50x50&set=set1');
-INSERT INTO Users (id, username, email, password, name, gender, birthDate, profilePicture) VALUES (12, 'psquiresb', 'psquiresb@a8.net', '8LxQCjaQ', 'Paulie Squires', 'F', '19/12/1967', 'https://robohash.org/omnissitnisi.jpg?size=50x50&set=set1');
-INSERT INTO Users (id, username, email, password, name, gender, birthDate, profilePicture) VALUES (13, 'jcawsonc', 'jcawsonc@state.tx.us', 'HcUzHg4nniSn', 'Joete Cawson', 'F', '04/11/1963', 'https://robohash.org/autquiquae.jpg?size=50x50&set=set1');
-INSERT INTO Users (id, username, email, password, name, gender, birthDate, profilePicture) VALUES (14, 'ckleeweind', 'ckleeweind@netscape.com', 'mFo2GOB0Ppk', 'Chrisse Kleewein', 'M', '20/01/1969', 'https://robohash.org/molestiasexcepturinisi.jpg?size=50x50&set=set1');
-INSERT INTO Users (id, username, email, password, name, gender, birthDate, profilePicture) VALUES (15, 'fdurkine', 'fdurkine@bandcamp.com', 'GS4c0jqQ2G6', 'Felicdad Durkin', 'F', '20/03/1963', 'https://robohash.org/etharumaut.jpg?size=50x50&set=set1');
-INSERT INTO Users (id, username, email, password, name, gender, birthDate, profilePicture) VALUES (16, 'gecclestonef', 'gecclestonef@dmoz.org', '3dkJzqMu8GJA', 'Giovanni Ecclestone', 'M', '04/05/1986', 'https://robohash.org/nemosedtempore.jpg?size=50x50&set=set1');
-INSERT INTO Users (id, username, email, password, name, gender, birthDate, profilePicture) VALUES (17, 'jfoggartyg', 'jfoggartyg@adobe.com', 'SR06bSGa', 'Jodie Foggarty', 'M', '03/11/1992', 'https://robohash.org/voluptatibusaaut.jpg?size=50x50&set=set1');
-INSERT INTO Users (id, username, email, password, name, gender, birthDate, profilePicture) VALUES (18, 'toubridgeh', 'toubridgeh@sbwire.com', 'lcod5ZazzE', 'Tybalt Oubridge', 'M', '09/06/1976', 'https://robohash.org/assumendaametdoloribus.jpg?size=50x50&set=set1');
-INSERT INTO Users (id, username, email, password, name, gender, birthDate, profilePicture) VALUES (19, 'rjerischi', 'rjerischi@ask.com', 'juzuQgLc8Wk', 'Robinet Jerisch', 'F', '21/02/1984', 'https://robohash.org/reprehenderitsintaut.jpg?size=50x50&set=set1');
-INSERT INTO Users (id, username, email, password, name, gender, birthDate, profilePicture) VALUES (20, 'lleckenbyj', 'lleckenbyj@altervista.org', 'yCo0MUVBiwo5', 'Lambert Leckenby', 'M', '19/02/1971', 'https://robohash.org/cumassumendavoluptates.jpg?size=50x50&set=set1');
-INSERT INTO Users (id, username, email, password, name, gender, birthDate, profilePicture) VALUES (21, 'arobilartk', 'arobilartk@prweb.com', 'L35SXlCRWLnh', 'Ariana Robilart', 'F', '14/10/1981', 'https://robohash.org/quibusdamrepellendusea.jpg?size=50x50&set=set1');
-INSERT INTO Users (id, username, email, password, name, gender, birthDate, profilePicture) VALUES (22, 'hpepinl', 'hpepinl@foxnews.com', 'ul4fxJitn', 'Heida Pepin', 'F', '26/06/1984', 'https://robohash.org/autetsit.jpg?size=50x50&set=set1');
-INSERT INTO Users (id, username, email, password, name, gender, birthDate, profilePicture) VALUES (23, 'sromem', 'sromem@taobao.com', '7u7v581lT', 'Sheeree Rome', 'F', '10/07/1981', 'https://robohash.org/doloresdictaunde.jpg?size=50x50&set=set1');
-INSERT INTO Users (id, username, email, password, name, gender, birthDate, profilePicture) VALUES (24, 'oboydelln', 'oboydelln@state.tx.us', 'b6Hn4LpI', 'Obie Boydell', 'M', '31/05/1988', 'https://robohash.org/quodquocorporis.jpg?size=50x50&set=set1');
-INSERT INTO Users (id, username, email, password, name, gender, birthDate, profilePicture) VALUES (25, 'aadamovitzo', 'aadamovitzo@cnn.com', '3WYx3r0rUjb1', 'Alex Adamovitz', 'M', '27/11/1995', 'https://robohash.org/perferendisquiquos.jpg?size=50x50&set=set1');
-INSERT INTO Users (id, username, email, password, name, gender, birthDate, profilePicture) VALUES (26, 'hmoaklerp', 'hmoaklerp@economist.com', 'PTTlMyRvQnmt', 'Heinrik Moakler', 'M', '14/11/1961', 'https://robohash.org/ipsumquiscommodi.jpg?size=50x50&set=set1');
-INSERT INTO Users (id, username, email, password, name, gender, birthDate, profilePicture) VALUES (27, 'tstiveq', 'tstiveq@networksolutions.com', 'psmn4u', 'Towny Stive', 'M', '24/10/1965', 'https://robohash.org/sedpraesentiumquae.jpg?size=50x50&set=set1');
-INSERT INTO Users (id, username, email, password, name, gender, birthDate, profilePicture) VALUES (28, 'aduerr', 'aduerr@theatlantic.com', 'PqnQTYQi', 'Alys Duer', 'F', '04/09/1962', 'https://robohash.org/officiisesseeveniet.jpg?size=50x50&set=set1');
-INSERT INTO Users (id, username, email, password, name, gender, birthDate, profilePicture) VALUES (29, 'ncrommetts', 'ncrommetts@engadget.com', 'IsXzBXZ1Qv3', 'Nedi Crommett', 'F', '11/05/1997', 'https://robohash.org/sedprovidentodit.jpg?size=50x50&set=set1');
-INSERT INTO Users (id, username, email, password, name, gender, birthDate, profilePicture) VALUES (30, 'mpeealesst', 'mpeealesst@uol.com.br', 'u0vxzBN6', 'Marcus Peealess', 'M', '01/11/1997', 'https://robohash.org/eaqueconsequaturaut.jpg?size=50x50&set=set1');
+INSERT INTO Users (id, username, email, password, name, profilePicture) VALUES (1, 'cstocking0', 'cstocking0@blogger.com', 'hXiJi5ZHaZM', 'Celestyn Stocking', 'https://robohash.org/numquamnonest.jpg?size=50x50&set=set1');
+INSERT INTO Users (id, username, email, password, name, profilePicture) VALUES (2, 'spetrichat1', 'spetrichat1@utexas.edu', '05V30BY5z6', 'Sam Petrichat', 'https://robohash.org/veniaminventoreodio.jpg?size=50x50&set=set1');
+INSERT INTO Users (id, username, email, password, name, profilePicture) VALUES (3, 'cbewick2', 'cbewick2@eepurl.com', '0jVue5kcNMq', 'Cissiee Bewick', 'https://robohash.org/omnisutveniam.jpg?size=50x50&set=set1');
+INSERT INTO Users (id, username, email, password, name, profilePicture) VALUES (4, 'abolan3', 'abolan3@weebly.com', 'wCfzhUdljY0X', 'Antonio Bolan', 'https://robohash.org/necessitatibusperferendisvel.jpg?size=50x50&set=set1');
+INSERT INTO Users (id, username, email, password, name, profilePicture) VALUES (5, 'tlevick4', 'tlevick4@typepad.com', 'rv8I5c4', 'Tyler Levick', 'https://robohash.org/temporemagnamdolores.jpg?size=50x50&set=set1');
+INSERT INTO Users (id, username, email, password, name, profilePicture) VALUES (6, 'nle5', 'nle5@scientificamerican.com', 'M5wTwj', 'Nita Le Borgne', 'https://robohash.org/explicaboisteitaque.jpg?size=50x50&set=set1');
+INSERT INTO Users (id, username, email, password, name, profilePicture) VALUES (7, 'tosesnane6', 'tosesnane6@state.tx.us', '7VHno1', 'Tremaine O''Sesnane', 'https://robohash.org/totamquiaut.jpg?size=50x50&set=set1');
+INSERT INTO Users (id, username, email, password, name, profilePicture) VALUES (8, 'dpaoloni7', 'dpaoloni7@marriott.com', 'x7k1UhTu7sXE', 'Darlleen Paoloni', 'https://robohash.org/minimacumeligendi.jpg?size=50x50&set=set1');
+INSERT INTO Users (id, username, email, password, name, profilePicture) VALUES (9, 'eshore8', 'eshore8@bloglovin.com', 'qJ9h9se3n3q1', 'Eulalie Shore', 'https://robohash.org/providentpariaturadipisci.jpg?size=50x50&set=set1');
+INSERT INTO Users (id, username, email, password, name, profilePicture) VALUES (10, 'jklemz9', 'jklemz9@nsw.gov.au', 'q4bem4u7', 'Janette Klemz', 'https://robohash.org/enimametautem.jpg?size=50x50&set=set1');
+INSERT INTO Users (id, username, email, password, name, profilePicture) VALUES (11, 'lstelfoxa', 'lstelfoxa@fc2.com', 'jYHWVq3IiY4v', 'Layton Stelfox', 'https://robohash.org/architectoetet.jpg?size=50x50&set=set1');
+INSERT INTO Users (id, username, email, password, name, profilePicture) VALUES (12, 'psquiresb', 'psquiresb@a8.net', '8LxQCjaQ', 'Paulie Squires', 'https://robohash.org/omnissitnisi.jpg?size=50x50&set=set1');
+INSERT INTO Users (id, username, email, password, name, profilePicture) VALUES (13, 'jcawsonc', 'jcawsonc@state.tx.us', 'HcUzHg4nniSn', 'Joete Cawson', 'https://robohash.org/autquiquae.jpg?size=50x50&set=set1');
+INSERT INTO Users (id, username, email, password, name, profilePicture) VALUES (14, 'ckleeweind', 'ckleeweind@netscape.com', 'mFo2GOB0Ppk', 'Chrisse Kleewein', 'https://robohash.org/molestiasexcepturinisi.jpg?size=50x50&set=set1');
+INSERT INTO Users (id, username, email, password, name, profilePicture) VALUES (15, 'fdurkine', 'fdurkine@bandcamp.com', 'GS4c0jqQ2G6', 'Felicdad Durkin', 'https://robohash.org/etharumaut.jpg?size=50x50&set=set1');
+INSERT INTO Users (id, username, email, password, name, profilePicture) VALUES (16, 'gecclestonef', 'gecclestonef@dmoz.org', '3dkJzqMu8GJA', 'Giovanni Ecclestone', 'https://robohash.org/nemosedtempore.jpg?size=50x50&set=set1');
+INSERT INTO Users (id, username, email, password, name, profilePicture) VALUES (17, 'jfoggartyg', 'jfoggartyg@adobe.com', 'SR06bSGa', 'Jodie Foggarty', 'https://robohash.org/voluptatibusaaut.jpg?size=50x50&set=set1');
+INSERT INTO Users (id, username, email, password, name, profilePicture) VALUES (18, 'toubridgeh', 'toubridgeh@sbwire.com', 'lcod5ZazzE', 'Tybalt Oubridge', 'https://robohash.org/assumendaametdoloribus.jpg?size=50x50&set=set1');
+INSERT INTO Users (id, username, email, password, name, profilePicture) VALUES (19, 'rjerischi', 'rjerischi@ask.com', 'juzuQgLc8Wk', 'Robinet Jerisch', 'https://robohash.org/reprehenderitsintaut.jpg?size=50x50&set=set1');
+INSERT INTO Users (id, username, email, password, name, profilePicture) VALUES (20, 'lleckenbyj', 'lleckenbyj@altervista.org', 'yCo0MUVBiwo5', 'Lambert Leckenby', 'https://robohash.org/cumassumendavoluptates.jpg?size=50x50&set=set1');
+INSERT INTO Users (id, username, email, password, name, profilePicture) VALUES (21, 'arobilartk', 'arobilartk@prweb.com', 'L35SXlCRWLnh', 'Ariana Robilart', 'https://robohash.org/quibusdamrepellendusea.jpg?size=50x50&set=set1');
+INSERT INTO Users (id, username, email, password, name, profilePicture) VALUES (22, 'hpepinl', 'hpepinl@foxnews.com', 'ul4fxJitn', 'Heida Pepin', 'https://robohash.org/autetsit.jpg?size=50x50&set=set1');
+INSERT INTO Users (id, username, email, password, name, profilePicture) VALUES (23, 'sromem', 'sromem@taobao.com', '7u7v581lT', 'Sheeree Rome', 'https://robohash.org/doloresdictaunde.jpg?size=50x50&set=set1');
+INSERT INTO Users (id, username, email, password, name, profilePicture) VALUES (24, 'oboydelln', 'oboydelln@state.tx.us', 'b6Hn4LpI', 'Obie Boydell', 'https://robohash.org/quodquocorporis.jpg?size=50x50&set=set1');
+INSERT INTO Users (id, username, email, password, name, profilePicture) VALUES (25, 'aadamovitzo', 'aadamovitzo@cnn.com', '3WYx3r0rUjb1', 'Alex Adamovitz', 'https://robohash.org/perferendisquiquos.jpg?size=50x50&set=set1');
+INSERT INTO Users (id, username, email, password, name, profilePicture) VALUES (26, 'hmoaklerp', 'hmoaklerp@economist.com', 'PTTlMyRvQnmt', 'Heinrik Moakler', 'https://robohash.org/ipsumquiscommodi.jpg?size=50x50&set=set1');
+INSERT INTO Users (id, username, email, password, name, profilePicture) VALUES (27, 'tstiveq', 'tstiveq@networksolutions.com', 'psmn4u', 'Towny Stive', 'https://robohash.org/sedpraesentiumquae.jpg?size=50x50&set=set1');
+INSERT INTO Users (id, username, email, password, name, profilePicture) VALUES (28, 'aduerr', 'aduerr@theatlantic.com', 'PqnQTYQi', 'Alys Duer', 'https://robohash.org/officiisesseeveniet.jpg?size=50x50&set=set1');
+INSERT INTO Users (id, username, email, password, name, profilePicture) VALUES (29, 'ncrommetts', 'ncrommetts@engadget.com', 'IsXzBXZ1Qv3', 'Nedi Crommett', 'https://robohash.org/sedprovidentodit.jpg?size=50x50&set=set1');
+INSERT INTO Users (id, username, email, password, name, profilePicture) VALUES (30, 'mpeealesst', 'mpeealesst@uol.com.br', 'u0vxzBN6', 'Marcus Peealess', 'https://robohash.org/eaqueconsequaturaut.jpg?size=50x50&set=set1');
+INSERT INTO Users (id, username, email, password, name, profilePicture) VALUES (31, 'admin', 'admin@admin.admin', '$2y$12$gcoVu/xHZx2m2KfQaar.C./51R2WwjvQVL5uO7c08RkThFrf5Vl0e', 'admin', NULL);
+INSERT INTO Users (id, username, email, password, name, profilePicture) VALUES (32, 'ltw', 'ltw@ltw.com', '$2y$12$WJ1gIbBAj9.g9UmE73z43eqeCfZwnQdkbk7wQDIHbmHblOolryu5C', 'ltw', NULL);
 
 COMMIT TRANSACTION;
 PRAGMA foreign_keys = on;
