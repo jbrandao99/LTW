@@ -38,4 +38,17 @@
     
 
   }
+ function getSentMessages($username) {
+    $db = Database::instance()->db();
+    $stmt = $db->prepare('SELECT * FROM Messages WHERE senderUsername = ? ');
+    $stmt->execute(array($username));
+    return $stmt->fetchAll(); 
+  }
+ function getReceivedMessages($username) {
+    $db = Database::instance()->db();
+    $stmt = $db->prepare('SELECT * FROM Messages WHERE recipientUsername = ? ');
+    $stmt->execute(array($username));
+    return $stmt->fetchAll(); 
+  }
+
 ?>

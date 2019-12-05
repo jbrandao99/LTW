@@ -1,5 +1,5 @@
 --
--- File generated with SQLiteStudio v3.2.1 on Thu Dec 5 18:42:50 2019
+-- File generated with SQLiteStudio v3.2.1 on Thu Dec 5 22:05:09 2019
 --
 -- Text encoding used: UTF-8
 --
@@ -10,27 +10,30 @@ BEGIN TRANSACTION;
 DROP TABLE IF EXISTS Messages;
 
 CREATE TABLE Messages (
-    id         INTEGER PRIMARY KEY,
-    text       VARCHAR NOT NULL,
-    propertyID INTEGER REFERENCES Properties (id) ON UPDATE CASCADE,
-    touristID  INTEGER REFERENCES Tourists (id) ON UPDATE CASCADE
+    id                INTEGER PRIMARY KEY,
+    text              VARCHAR NOT NULL,
+    propertyID        INTEGER REFERENCES Properties (id) ON UPDATE CASCADE,
+    touristID         INTEGER REFERENCES Tourists (id) ON UPDATE CASCADE,
+    senderUsername    VARCHAR,
+    recipientUsername VARCHAR
 );
 
-INSERT INTO Messages (id, text, propertyID, touristID) VALUES (1, 'Is the house dog friendly?', 4, 3);
-INSERT INTO Messages (id, text, propertyID, touristID) VALUES (2, 'How many beds are available?', 1, 5);
+INSERT INTO Messages (id, text, propertyID, touristID, senderUsername, recipientUsername) VALUES (1, 'Is the house dog friendly?', 4, 3, 'tourist', 'mpinho');
+INSERT INTO Messages (id, text, propertyID, touristID, senderUsername, recipientUsername) VALUES (2, 'How many beds are available?', 1, 5, 'tourist', 'brandao');
 
 -- Table: Owners
 DROP TABLE IF EXISTS Owners;
 
 CREATE TABLE Owners (
-    id INTEGER PRIMARY KEY
-             REFERENCES Users (id) ON UPDATE CASCADE
+    id       INTEGER PRIMARY KEY
+                     REFERENCES Users (id) ON UPDATE CASCADE,
+    username VARCHAR REFERENCES Users (username) ON UPDATE CASCADE
 );
 
-INSERT INTO Owners (id) VALUES (1);
-INSERT INTO Owners (id) VALUES (2);
-INSERT INTO Owners (id) VALUES (3);
-INSERT INTO Owners (id) VALUES (4);
+INSERT INTO Owners (id, username) VALUES (1, 'admin');
+INSERT INTO Owners (id, username) VALUES (2, 'mpinho');
+INSERT INTO Owners (id, username) VALUES (3, 'ranheri');
+INSERT INTO Owners (id, username) VALUES (4, 'brandao');
 
 -- Table: Photos
 DROP TABLE IF EXISTS Photos;
@@ -71,19 +74,20 @@ CREATE TABLE Properties (
     id                INTEGER PRIMARY KEY,
     ownerID           INTEGER NOT NULL
                               REFERENCES Owners (id) ON UPDATE CASCADE,
+    ownerUsername     VARCHAR REFERENCES Owners (username) ON UPDATE CASCADE,
     price             FLOAT   NOT NULL,
     title             VARCHAR NOT NULL,
     location          VARCHAR NOT NULL,
     description       VARCHAR NOT NULL,
-    availabilityStart DATE    NOT NULL,
-    availabilityEnd   DATE    NOT NULL
+    availabilityEnd   DATE,
+    availabilityStart DATE
 );
 
-INSERT INTO Properties (id, ownerID, price, title, location, description, availabilityStart, availabilityEnd) VALUES (1, 4, 30.0, 'Downtown Apartment', 'Downtown', '3 Rooms', '01/01/2019', '31/12/2019');
-INSERT INTO Properties (id, ownerID, price, title, location, description, availabilityStart, availabilityEnd) VALUES (2, 1, 43.0, 'Ribeira Vintage', 'Ribeira', '1 Room', '01/01/2019', '31/12/2019');
-INSERT INTO Properties (id, ownerID, price, title, location, description, availabilityStart, availabilityEnd) VALUES (3, 3, 97.0, 'Infante Apartment', 'Infante', '2 Rooms', '01/01/2019', '31/12/2019');
-INSERT INTO Properties (id, ownerID, price, title, location, description, availabilityStart, availabilityEnd) VALUES (4, 2, 102.0, 'Charming Loft', 'Gaia', '2 Rooms', '01/01/2019', '31/12/2019');
-INSERT INTO Properties (id, ownerID, price, title, location, description, availabilityStart, availabilityEnd) VALUES (5, 2, 70.0, 'Studio Garden', 'Marques', '1 Room', '01/01/2019', '31/12/2019');
+INSERT INTO Properties (id, ownerID, ownerUsername, price, title, location, description, availabilityEnd, availabilityStart) VALUES (1, 4, 'brandao', 30.0, 'Downtown Apartment', 'Downtown', '3 Rooms', '31/12/2019', '01/01/2019');
+INSERT INTO Properties (id, ownerID, ownerUsername, price, title, location, description, availabilityEnd, availabilityStart) VALUES (2, 1, 'admin', 43.0, 'Ribeira Vintage', 'Ribeira', '1 Room', '31/12/2019', '01/01/2019');
+INSERT INTO Properties (id, ownerID, ownerUsername, price, title, location, description, availabilityEnd, availabilityStart) VALUES (3, 3, 'ranheri', 97.0, 'Infante Apartment', 'Infante', '2 Rooms', '31/12/2019', '01/01/2019');
+INSERT INTO Properties (id, ownerID, ownerUsername, price, title, location, description, availabilityEnd, availabilityStart) VALUES (4, 2, 'mpinho', 102.0, 'Charming Loft', 'Gaia', '2 Rooms', '31/12/2019', '01/01/2019');
+INSERT INTO Properties (id, ownerID, ownerUsername, price, title, location, description, availabilityEnd, availabilityStart) VALUES (5, 2, 'mpinho', 70.0, 'Studio Garden', 'Marques', '1 Room', '31/12/2019', '01/01/2019');
 
 -- Table: Reservations
 DROP TABLE IF EXISTS Reservations;
@@ -112,14 +116,15 @@ INSERT INTO Reservations (id, touristID, propertyID, startDate, endDate, price, 
 DROP TABLE IF EXISTS Tourists;
 
 CREATE TABLE Tourists (
-    id INTEGER PRIMARY KEY
-             REFERENCES Users (id) ON UPDATE CASCADE
+    id       INTEGER PRIMARY KEY
+                     REFERENCES Users (id) ON UPDATE CASCADE,
+    username VARCHAR REFERENCES Users (username) ON UPDATE RESTRICT
 );
 
-INSERT INTO Tourists (id) VALUES (1);
-INSERT INTO Tourists (id) VALUES (2);
-INSERT INTO Tourists (id) VALUES (3);
-INSERT INTO Tourists (id) VALUES (5);
+INSERT INTO Tourists (id, username) VALUES (1, 'admin');
+INSERT INTO Tourists (id, username) VALUES (2, 'mpinho');
+INSERT INTO Tourists (id, username) VALUES (3, 'ranheri');
+INSERT INTO Tourists (id, username) VALUES (5, 'tourist');
 
 -- Table: Users
 DROP TABLE IF EXISTS Users;
@@ -139,6 +144,7 @@ INSERT INTO Users (id, username, email, password, name, profilePicture) VALUES (
 INSERT INTO Users (id, username, email, password, name, profilePicture) VALUES (2, 'mpinho', 'mpinho@feup.pt', '$2y$12$yOQRHINTmmqZeEro29tfruC1uknVoThXKwENXJ/qfZngRxRHJeoFK', 'muriel pinho', NULL);
 INSERT INTO Users (id, username, email, password, name, profilePicture) VALUES (3, 'ranheri', 'ranheri@fe.up.pt', '$2y$12$xGqcJs74ick2Pr4Yd1FPHeTUkG2fU6JtLPmPQG2LzgKU1ZXWTLH9S', 'fellipe ranheri', NULL);
 INSERT INTO Users (id, username, email, password, name, profilePicture) VALUES (4, 'brandao', 'jbrandao@fe.up.pt', '$2y$12$W1PKKaYfYpm6.LXL3DlA7ukDeKsikq4MvDik55wZcmW9aNKQL4VgK', 'joao brandao', NULL);
+INSERT INTO Users (id, username, email, password, name, profilePicture) VALUES (5, 'tourist', 'tourist@gmail.com', '$2y$12$JTGQ8YlmqpGauftEMlU9Y..J7NA/Ai2ZjUDz9sb17k7UAtLMfiF92', 'tourist', NULL);
 
 COMMIT TRANSACTION;
 PRAGMA foreign_keys = on;

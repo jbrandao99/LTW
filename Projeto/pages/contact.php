@@ -4,7 +4,7 @@
   include_once('../templates/common/tpl_contact.php');
 
   // Verify if user is logged in
-  if (isset($_SESSION['username']))
+  if (!isset($_SESSION['username']))
     die(header('Location: rental.php'));
 
   draw_header(null);
