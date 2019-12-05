@@ -5,9 +5,12 @@
 
   // Verify if user is logged in
   if (isset($_SESSION['username']))
-    die(header('Location: rental.php'));
-
-  draw_header(null);
+  {
+  draw_header($_SESSION['username']);
   draw_profile();
   draw_footer();
+  }
+  else
+    die(header('Location: login.php'));
+
 ?>

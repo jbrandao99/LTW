@@ -12,7 +12,7 @@
     $stmt->execute(array($username));
 
     $user = $stmt->fetch();
-    return $user !== false;
+    return $user !== false && password_verify($password, $user['password']);
   }
 
   function insertUser($username, $email, $password, $name) {
@@ -23,4 +23,19 @@
     $stmt = $db->prepare('INSERT INTO Users VALUES(NULL, ?, ?, ?, ?,NULL)');
     $stmt->execute(array($username,$email, password_hash($password, PASSWORD_DEFAULT, $options),$name));
   }
-?>0
+
+  function editUser($username,$newusername,$password,$newpassword) {
+    $db = Database::instance()->db();
+    $options = ['cost' => 12];
+    if(checkUserPassword($username, $password))
+    {
+
+    $stmt = $db->prepare('UPDATE Users SET password = ? , username = ? WHERE  username = ?');
+    $stmt->execute(array(password_hash($newpassword, PASSWORD_DEFAULT, $options),$newusername,$username));
+    return 1;
+   }
+   return 0;
+    
+
+  }
+?>

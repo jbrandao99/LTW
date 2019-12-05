@@ -2,20 +2,20 @@
 /**
  * Draws the signup section.
  */ ?>
-  <section class="profile">
+  <section class="password">
 
-    <header><h2>Edit Profile</h2></header>
-
-    <!--PLACE PROFILE PHOTO -->
+    <header><h2>Change Password</h2></header>
 
     <form method="post" action="../actions/action_profile.php">
-      <input type="file" name="profile_photo" placeholder="Photo" required="" capture>
-      <input type="text" name="name" placeholder="full name" required>
       <input type="text" name="username" placeholder="username" required>
       <input type="password" name="password" placeholder="password" required>
-      <input type="email" name="email" placeholder="email address" required>
-      <input type="submit" value="Save">
+      <input type="password" name="newpassword" placeholder="new password" required>
+      <input type="submit" value="Change">
     </form>
+
+    <footer>
+      <p>Already have an account? <a href="login.php">Login!</a></p>
+    </footer>
 
   </section>
 <?php } ?>
