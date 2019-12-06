@@ -13,7 +13,8 @@
 <?php function draw_rental($rental) {
 ?>
 <article>
-  <h2>Title: <?=$rental['title']?></h2>
+  <h2><a href="property.php?id=<?=$rental['id']?> "><?=$rental['title']?></a><h2>  
+  
   <h2>Description: <?=$rental['description']?></h2>
   <h2>Price per night :<?=$rental['price']?>€</h2>
   <h1>. </h1>
