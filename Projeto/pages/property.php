@@ -4,7 +4,6 @@
   include_once('../templates/common/tpl_property.php');
   include_once('../database/db_rental.php');
 
-
   // Verify if user is logged in
   if (!isset($_SESSION['username']))
   {
@@ -17,10 +16,6 @@
   if(isset($property))
   {
   draw_property($property);
-
   }
-  
-  draw_footer();
-    
-
+  draw_footer();  
 ?>

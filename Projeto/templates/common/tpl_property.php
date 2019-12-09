@@ -7,6 +7,5 @@
   <h2>Price per night :<?=$property['price']?>€</h2>
   <h1>. </h1>
  
- 
 </article>
 <?php } ?>

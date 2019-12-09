@@ -12,7 +12,15 @@
 
 <?php function draw_message($message) {
 ?>
-<article>
+<article class="message">
+  <header>
+</header>
+
+<main>
+</main>
+
+<footer>
+</footer>
   <h2>Sender: <?=$message['senderUsername']?></h2>
   <h2>Property: <?=$message['propertyID']?></h2>
   <h2>Text: <?=$message['text']?></h2>

@@ -44,5 +44,4 @@
     $stmt->execute(array($property_id));
   }
 
-
 ?>

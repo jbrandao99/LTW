@@ -10,10 +10,6 @@
   display: inline-block;
 }
 
-#header_links .right_links {
-  padding: 0px 20px;
-}
-
 h1 a {
   font-size: 30px;
   text-decoration: none;
@@ -28,6 +24,8 @@ h1 a:hover {
 
 .right_links {
   float: right;
+  padding: 0px 20px;
+  margin-top: 10px;
 }
 
 .right_links a {
