@@ -15,7 +15,6 @@
   
   draw_header($_SESSION['username']);
   draw_rentals($rentals);
-  
   draw_footer();
     
 

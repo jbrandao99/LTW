@@ -1,20 +1,17 @@
 <?php function draw_contact() { 
 /**
- * Draws the login section.
+ * Draws the contact section.
  */ ?>
-  <section class="login">
+  <section class="contact">
     
-    <header><h2>Welcome Back</h2></header>
+    <header><h2>Contact Us</h2></header>
 
-    <form method="post" action="../actions/action_login.php">
-      <input type="text" name="username" placeholder="username" required>
-      <input type="password" name="password" placeholder="password" required>
-      <input type="submit" value="Login">
+    <form method="post" action="../actions/action_contact.php">
+      <input type="text" name="name" placeholder="full name" required>
+      <input type="email" name="email" placeholder="email address" required>
+      <textarea name="subject" placeholder="write something" required></textarea>
+      <input type="submit" value="Submit">
     </form>
-
-    <footer>
-      <p>Don't have an account? <a href="signup.php">Signup!</a></p>
-    </footer>
 
   </section>
 <?php } ?>

@@ -12,9 +12,10 @@
 
 <?php function draw_rental($rental) {
 ?>
-<article class="rental">
+<a href="property.php?id=<?=$rental['id']?> " class="rental">
+<article>
   <header>
-    <h2><a href="property.php?id=<?=$rental['id']?> "><?=$rental['title']?></a></h2>
+    <h2><?=$rental['title']?></h2>
   </header>
 
   <main>
@@ -28,4 +29,5 @@
   </footer>
 
 </article>
+</a>
 <?php } ?>

@@ -18,6 +18,8 @@
     <link rel="stylesheet" type="text/css" href="../css/profile.css">
     <link rel="stylesheet" type="text/css" href="../css/aboutus.css">
     <link rel="stylesheet" type="text/css" href="../css/rental.css">
+    <link rel="stylesheet" type="text/css" href="../css/property.css">
+    <link rel="stylesheet" type="text/css" href="../css/contact.css">
     <link rel="shortcut icon" href="../images/site/accusoft.png">
     <script src="https://kit.fontawesome.com/bb66e67d26.js" crossorigin="anonymous"></script>
     <title>Rent-a-Place</title>
@@ -30,9 +32,10 @@
         <?php if ($username != NULL) { ?>
           <ul id="header_links">
               <li><h1><a href="login.php" ><i class="fab fa-accusoft"></i> Rent-a-Place</a></h1></li>
-              <li class="right_links"><a href="../actions/action_logout.php">Logout</a></li>
+              <li class="right_links"><a id="logout" href="../actions/action_logout.php">Logout</a></li>
               <li class="right_links"><a href="profile.php"><?=$username?></a></li>
               <li class="right_links"><a href="messages.php">Messages</a></li>
+              <li class="right_links"><a href="reservations.php">Reservations</a></li>
               <li class="right_links"><a href="manage.php">My Places</a></li>
             </ul>
         <?php }

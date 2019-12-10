@@ -4,10 +4,16 @@
   include_once('../templates/common/tpl_aboutus.php');
 
   // Verify if user is logged in
-  if (!isset($_SESSION['username']))
-    die(header('Location: rental.php'));
-
-  draw_header(null);
-  draw_aboutus();
-  draw_footer();
+  if (isset($_SESSION['username']))
+  {
+    draw_header($_SESSION['username']);
+    draw_aboutus();
+    draw_footer();
+  }
+  else
+  {
+    draw_header(null);
+    draw_aboutus();
+    draw_footer();
+  }
 ?>

@@ -35,6 +35,14 @@ h1 a:hover {
   text-decoration: none;
 }
 
+.right_links #logout {
+  color: #d8000c;
+}
+
+.right_links #logout:hover {
+  color: #edf0f1;
+}
+
 .right_links a:hover {
   color: #0088a9;
 }
