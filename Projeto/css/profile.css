@@ -2,6 +2,24 @@
   margin-bottom: 10px;
 }
 
-.profile input[type="file"] {
-  display: none;
+.profile #profileDisplay {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  transition: all 0.3s ease 0s;
+}
+
+.profile #profileDisplay:hover {
+  box-shadow: 0 13px 15px 0 rgba(0, 0, 0, 0.2);
+}
+
+.profile label {
+  display: block;
+  text-align: center;
+  background-color: #0088a9;
+  margin: 5px 0 5px 0;
 }

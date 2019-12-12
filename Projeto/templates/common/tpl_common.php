@@ -20,6 +20,7 @@
     <link rel="stylesheet" type="text/css" href="../css/rental.css">
     <link rel="stylesheet" type="text/css" href="../css/property.css">
     <link rel="stylesheet" type="text/css" href="../css/contact.css">
+    <link rel="stylesheet" type="text/css" href="../css/search.css">
     <link rel="shortcut icon" href="../images/site/accusoft.png">
     <script src="https://kit.fontawesome.com/bb66e67d26.js" crossorigin="anonymous"></script>
     <title>Rent-a-Place</title>

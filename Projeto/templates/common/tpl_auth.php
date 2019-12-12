@@ -27,7 +27,10 @@
 
     <header><h2>New Account</h2></header>
 
-    <form method="post" action="../actions/action_signup.php">
+    <form method="post" action="../actions/action_signup.php" enctype="multipart/form-data">
+      <img src="../images/site/placeholder.png" onclick="pictureClick()" id="profileDisplay"/>
+      <label for="profilePicture">Profile Picture</label>
+      <input type="file" name="profilePicture" onchange="displayImage(this)" id="profilePicture" style="display:none;">
       <input type="text" name="name" placeholder="full name" required>
       <input type="text" name="username" placeholder="username" required>
       <input type="password" name="password" placeholder="password" required>
@@ -40,4 +43,6 @@
     </footer>
 
   </section>
+
+  <script src="../javascript/profilePicture.js"></script>
 <?php } ?>
