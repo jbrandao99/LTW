@@ -1,7 +1,8 @@
-<?php function draw_aboutus() { 
-/**
- * Draws the aboutus section.
- */ ?>
+<?php function draw_aboutus()
+{
+    /**
+     * Draws the aboutus section.
+     */ ?>
   <section class="aboutus">
     
     <header><h2>About Us</h2></header>
@@ -27,4 +28,5 @@
     </div>
 
   </section>
-<?php } ?>
+<?php
+} ?>

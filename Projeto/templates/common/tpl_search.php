@@ -1,7 +1,8 @@
-<?php function draw_search() { 
-/**
- * Draws the search section.
- */ ?>
+<?php function draw_search()
+{
+    /**
+     * Draws the search section.
+     */ ?>
   <section class="search">
 
     <header><h2>Search a Place</h2></header>
@@ -18,4 +19,5 @@
   </section>
 
   <script src="../javascript/range_slider.js"></script>
-<?php } ?>
+<?php
+} ?>

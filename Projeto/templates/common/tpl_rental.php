@@ -1,17 +1,20 @@
-<?php function draw_rentals($rentals) {
-?>
+<?php function draw_rentals($rentals)
+{
+    ?>
   <section class="rentals">
 
-  <?php 
-    foreach($rentals as $rental)
-    draw_rental($rental)
-  ?>
+  <?php
+    foreach ($rentals as $rental) {
+        draw_rental($rental);
+    } ?>
  
   </section>
-<?php } ?>
+<?php
+} ?>
 
-<?php function draw_rental($rental) {
-?>
+<?php function draw_rental($rental)
+    {
+        ?>
 <a href="property.php?id=<?=$rental['id']?> " class="rental">
 <article>
   <header>
@@ -30,4 +33,5 @@
 
 </article>
 </a>
-<?php } ?>
+<?php
+    } ?>

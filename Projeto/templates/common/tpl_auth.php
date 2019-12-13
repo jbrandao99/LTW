@@ -1,7 +1,8 @@
-<?php function draw_login() { 
-/**
- * Draws the login section.
- */ ?>
+<?php function draw_login()
+{
+    /**
+     * Draws the login section.
+     */ ?>
   <section class="login">
     
     <header><h2>Welcome Back</h2></header>
@@ -17,12 +18,14 @@
     </footer>
 
   </section>
-<?php } ?>
+<?php
+} ?>
 
-<?php function draw_signup() { 
-/**
- * Draws the signup section.
- */ ?>
+<?php function draw_signup()
+    {
+        /**
+         * Draws the signup section.
+         */ ?>
   <section class="signup">
 
     <header><h2>New Account</h2></header>
@@ -45,4 +48,5 @@
   </section>
 
   <script src="../javascript/profilePicture.js"></script>
-<?php } ?>
+<?php
+    } ?>

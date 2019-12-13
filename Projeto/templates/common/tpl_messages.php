@@ -1,17 +1,20 @@
-<?php function draw_messages($messages) {
-?>
+<?php function draw_messages($messages)
+{
+    ?>
   <section id="messages">
 
-  <?php 
-    foreach($messages as $message)
-    draw_message($message)
-    ?>
+  <?php
+    foreach ($messages as $message) {
+        draw_message($message);
+    } ?>
  
   </section>
-<?php } ?>
+<?php
+} ?>
 
-<?php function draw_message($message) {
-?>
+<?php function draw_message($message)
+    {
+        ?>
 <article class="message">
   <header>
 </header>
@@ -27,4 +30,5 @@
  
  
 </article>
-<?php } ?>
+<?php
+    } ?>

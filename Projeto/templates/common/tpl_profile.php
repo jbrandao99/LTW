@@ -1,11 +1,12 @@
-<?php function draw_profile() { 
+<?php function draw_profile()
+{
     include_once('../includes/session.php');
     include_once('../database/db_user.php');
 
     $user = getUser($_SESSION['username']);
-/**
- * Draws the signup section.
- */ ?>
+    /**
+     * Draws the signup section.
+     */ ?>
   <section class="profile">
 
     <header><h2>Edit Profile</h2></header>
@@ -23,4 +24,5 @@
   </section>
 
   <script src="../javascript/profilePicture.js"></script>
-<?php } ?>
+<?php
+} ?>

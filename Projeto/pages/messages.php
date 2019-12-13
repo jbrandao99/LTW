@@ -1,4 +1,4 @@
-<?php 
+<?php
   include_once('../includes/session.php');
   include_once('../templates/common/tpl_common.php');
   include_once('../templates/common/tpl_messages.php');
@@ -6,9 +6,8 @@
 
 
   // Verify if user is logged in
-  if (!isset($_SESSION['username']))
-  {
-   die(header('Location: login.php'));
+  if (!isset($_SESSION['username'])) {
+      die(header('Location: login.php'));
   }
    
   $received = getReceivedMessages($_SESSION['username']);
@@ -19,6 +18,3 @@
   draw_messages($sent);
   
   draw_footer();
-    
-
-?>

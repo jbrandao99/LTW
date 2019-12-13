@@ -8,20 +8,17 @@
   $password = $_POST['password'];
   $name = $_POST['name'];
 
-  if ( !preg_match ("/^[a-zA-Z0-9]+$/", $username)) {
-    $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Username can only contain letters and numbers!');
-    die(header('Location: ../pages/signup.php'));
+  if (!preg_match("/^[a-zA-Z0-9]+$/", $username)) {
+      $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Username can only contain letters and numbers!');
+      die(header('Location: ../pages/signup.php'));
   }
   
   $filetype = $_FILES['profilePicture']['type'];
 
-  if($filetype == "image/jpeg")
-  {
-   $type = ".jpg";
-  }
-  else
-  {
-   $type = ".png";
+  if ($filetype == "image/jpeg") {
+      $type = ".jpg";
+  } else {
+      $type = ".png";
   }
   
    $profilePicture = $username.$type;
@@ -31,21 +28,17 @@
   
 
   try {
-    insertUser($username, $email, $password, $name, $profilePicture);
-    if($_FILES['profilePicture']['error']==4)
-    {
-      copy("../images/site/placeholder.png",$target);
-    }
-    else
-    {
-    move_uploaded_file($_FILES['profilePicture']['tmp_name'], $target);
-    }
-    $_SESSION['username'] = $username;
-    $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Signed up and logged in!');
-    header('Location: ../pages/search.php');
+      insertUser($username, $email, $password, $name, $profilePicture);
+      if ($_FILES['profilePicture']['error']==4) {
+          copy("../images/site/placeholder.png", $target);
+      } else {
+          move_uploaded_file($_FILES['profilePicture']['tmp_name'], $target);
+      }
+      $_SESSION['username'] = $username;
+      $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Signed up and logged in!');
+      header('Location: ../pages/search.php');
   } catch (PDOException $e) {
-    die($e->getMessage());
-    $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Failed to signup!');
-    header('Location: ../pages/signup.php');
+      die($e->getMessage());
+      $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Failed to signup!');
+      header('Location: ../pages/signup.php');
   }
-?>

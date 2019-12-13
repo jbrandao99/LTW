@@ -1,9 +1,10 @@
-<?php function draw_header($username) { 
-/**
- * Draws the header for all pages. Receives an username
- * if the user is logged in in order to draw the logout
- * link.
- */?>
+<?php function draw_header($username)
+{
+    /**
+     * Draws the header for all pages. Receives an username
+     * if the user is logged in in order to draw the logout
+     * link.
+     */?>
   <!DOCTYPE html>
   <html>
 
@@ -30,7 +31,7 @@
 
       <header class="main_header">
         <nav>
-        <?php if ($username != NULL) { ?>
+        <?php if ($username != null) { ?>
           <ul id="header_links">
               <li><h1><a href="login.php" ><i class="fab fa-accusoft"></i> Rent-a-Place</a></h1></li>
               <li class="right_links"><a id="logout" href="../actions/action_logout.php">Logout</a></li>
@@ -39,8 +40,7 @@
               <li class="right_links"><a href="reservations.php">Reservations</a></li>
               <li class="right_links"><a href="manage.php">My Places</a></li>
             </ul>
-        <?php }
-        else { ?>
+        <?php } else { ?>
           <ul id="header_links">
               <li><h1><a href="login.php" ><i class="fab fa-accusoft"></i> Rent-a-Place</a></h1></li>
             </ul>
@@ -49,17 +49,19 @@
       </header>
       <?php if (isset($_SESSION['messages'])) {?>
         <section id="messages">
-          <?php foreach($_SESSION['messages'] as $message) { ?>
+          <?php foreach ($_SESSION['messages'] as $message) { ?>
             <div class="<?=$message['type']?>"><?=$message['content']?></div>
           <?php } ?>
         </section>
       <?php unset($_SESSION['messages']); } ?>
-<?php } ?>
+<?php
+} ?>
 
-<?php function draw_footer() { 
-/**
- * Draws the footer for all pages.
- */ ?>
+<?php function draw_footer()
+    {
+        /**
+         * Draws the footer for all pages.
+         */ ?>
     <footer class="main_footer">
         <ul id="footer_links">
             <li>
@@ -75,4 +77,5 @@
     </footer>
   </body>
 </html>
-<?php } ?>
+<?php
+    } ?>

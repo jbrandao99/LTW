@@ -1,7 +1,8 @@
-<?php function draw_contact() {
-/**
- * Draws the contact section.
- */ ?>
+<?php function draw_contact()
+{
+    /**
+     * Draws the contact section.
+     */ ?>
   <section class="contact">
 
     <header><h2>Contact Us</h2></header>
@@ -15,4 +16,5 @@
     </form>
 
   </section>
-<?php } ?>
+<?php
+} ?>

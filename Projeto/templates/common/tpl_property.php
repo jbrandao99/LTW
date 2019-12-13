@@ -1,5 +1,6 @@
-<?php function draw_property($property) {
-?>
+<?php function draw_property($property)
+{
+    ?>
 <article class="property">
   <header>
     <h2><?=$property['title']?></a></h2>
@@ -12,4 +13,5 @@
   </main>
 
 </article>
-<?php } ?>
+<?php
+} ?>
