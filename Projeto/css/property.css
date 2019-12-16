@@ -19,3 +19,105 @@
   background-color: #0088a9;
   padding: 5px;
 }
+
+#add_prop {
+  background-color: #0088a9;
+  padding-right: 10%;
+  padding-left: 10%;
+  font-weight: 500;
+  color: #edf0f1;
+}
+
+#add_prop h1 {
+  color: #edf0f1;
+  background-color: #0088a9;
+  padding: 30px 10%;
+  text-align: center;
+}
+
+#add_prop h2 {
+  color: #edf0f1;
+  background-color: #0088a9;
+  padding: 30px 10%;
+}
+
+#add_prop input {
+  width: 100%;
+  color: #edf0f1;
+  padding: 15px 20px;
+  margin: 5px 0;
+  box-sizing: border-box;
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* Mark input boxes that gets an error on validation: */
+#add_prop input.invalid {
+  background-color: #d8000c;
+  opacity: 0.5;
+}
+
+/* Hide all steps by default: */
+.tab {
+  display: none;
+  background-color: #0088a9;
+  border: 2px solid #edf0f1;
+  padding: 10px 10px;
+  border-radius: 3px;
+}
+
+#add_prop button {
+  color: #0088a9;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 15px 20px;
+  border: 2px solid #24252a;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  background-color: #edf0f1;
+  transition: all 0.3s ease 0s;
+  width: 100%;
+}
+
+.button_prop {
+  background-color: #0088a9;
+}
+
+#btn_prop {
+  background-color: #0088a9;
+  display: inline-block;
+}
+
+#add_prop button:hover {
+  opacity: 0.8;
+  box-shadow: 0 13px 15px 0 rgba(0, 0, 0, 0.2);
+}
+
+#prevBtn {
+  background-color: #edf0f1;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #edf0f1;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #0088a9;
+  border: 2px solid #edf0f1;
+}

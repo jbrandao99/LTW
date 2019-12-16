@@ -13,5 +13,6 @@
   $rentals = getProperties($_SESSION['username']);
   
   draw_header($_SESSION['username']);
+  draw_add();
   draw_rentals($rentals);
   draw_footer();

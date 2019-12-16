@@ -8,11 +8,7 @@
   if (!isset($_SESSION['username'])) {
       die(header('Location: login.php'));
   }
-   
-  $property = getProperty($_GET['id']);
   
   draw_header($_SESSION['username']);
-  if (isset($property)) {
-      draw_property($property);
-  }
+  add_property();
   draw_footer();

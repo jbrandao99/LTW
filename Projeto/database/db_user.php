@@ -51,6 +51,14 @@
       return $stmt->fetch();
   }
 
+  function getUserbyID($id)
+  {
+      $db = Database::instance()->db();
+      $stmt = $db->prepare('SELECT * FROM Users WHERE id = ?');
+      $stmt->execute(array($id));
+      return $stmt->fetch();
+  }
+
  function getSentMessages($username)
  {
      $db = Database::instance()->db();
