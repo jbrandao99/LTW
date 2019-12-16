@@ -17,8 +17,8 @@
 } ?>
 
 <?php function add_property()
-{
-  ?>
+    {
+        ?>
   <section class="add_property">
 
   <form id="add_prop" method="post" action="../actions/action_add_property.php">
@@ -56,4 +56,4 @@
 <script src="../javascript/add_property.js"></script>
 
   <?php
-} ?>
+    } ?>

@@ -21,27 +21,22 @@
 
   $pattern = "/^[a-z A-Z]+$/";
   if (!preg_match($pattern, $title)) {
-    $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Title can only contain letters!');
-    die(header('Location: ../pages/property.php'));
+      $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Title can only contain letters!');
+      die(header('Location: ../pages/property.php'));
   }
   if (!preg_match($pattern, $location)) {
-    $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Location can only contain letters!');
-    die(header('Location: ../pages/property.php'));
+      $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Location can only contain letters!');
+      die(header('Location: ../pages/property.php'));
   }
   if (!preg_match("/^[a-z A-Z0-9]+$/", $description)) {
-    $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Description can only contain letters and numbers!');
-    die(header('Location: ../pages/property.php'));
+      $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Description can only contain letters and numbers!');
+      die(header('Location: ../pages/property.php'));
   }
  
-if (addProperty($userID,$price,$title,$location,$description,$start,$end)) {
-     $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Succesfully added property');
-     die(header('Location: ../pages/rental.php'));
- } else {
-     $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Failed to add property!');
-     die(header('Location: ../pages/property.php'));
- }
- 
-
-
- 
-
+if (addProperty($userID, $price, $title, $location, $description, $start, $end)) {
+    $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Succesfully added property');
+    die(header('Location: ../pages/rental.php'));
+} else {
+    $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Failed to add property!');
+    die(header('Location: ../pages/property.php'));
+}

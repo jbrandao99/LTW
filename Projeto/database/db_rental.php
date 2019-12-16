@@ -30,7 +30,7 @@
   }
 
 
-  function addProperty($ownerID, $price, $title, $location, $description,$start,$end)
+  function addProperty($ownerID, $price, $title, $location, $description, $start, $end)
   {
       $db = Database::instance()->db();
       $stmt = $db->prepare('INSERT INTO Properties VALUES(NULL, ?, ?, ?, ?, ?, ?, ?)');
@@ -46,11 +46,31 @@
       $stmt->execute(array($property_id));
       return $stmt->fetch();
   }
+function deleteProperty($property_id)
+{
+    $db = Database::instance()->db();
+    $stmt = $db->prepare('DELETE FROM Properties WHERE id = ?');
+    $stmt->execute(array($property_id));
+}
 
-
-  function deleteProperty($property_id)
+  function addPropertyPhoto($property_id, $path, $description)
   {
       $db = Database::instance()->db();
-      $stmt = $db->prepare('DELETE FROM Properties WHERE id = ?');
+      $stmt = $db->prepare('INSERT INTO Photos VALUES(NULL, ?, ?, ?)');
+      $stmt->execute(array($description,$property_id,$path));
+      return 1;
+  }
+  function removePropertyPhoto($photoID)
+  {
+      $db = Database::instance()->db();
+      $stmt = $db->prepare('DELETE FROM Photos WHERE id =?');
+      $stmt->execute(array($photoID));
+      return 1;
+  }
+  function getPropertyPhotos($property_id)
+  {
+      $db = Database::instance()->db();
+      $stmt = $db->prepare('SELECT * FROM Photos WHERE propertyID = ?');
       $stmt->execute(array($property_id));
+      return $stmt->fetchAll();
   }

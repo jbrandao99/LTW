@@ -15,17 +15,17 @@
 } ?>
 
 <?php function draw_add()
-{
-    ?>
+    {
+        ?>
   <section class="add_menu">
     <button type="button" onclick="window.location.href='../pages/property.php'" >Add Property</button>
   </section>
 <?php
-} ?>
+    } ?>
 
 <?php function draw_rental($rental)
-{
-?>
+    {
+        ?>
 <a href="property.php?id=<?=$rental['id']?> " class="rental">
 <article>
   <header>
@@ -47,4 +47,4 @@
 </article>
 </a>
 <?php
-} ?>
+    } ?>
