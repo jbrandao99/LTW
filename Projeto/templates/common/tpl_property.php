@@ -24,15 +24,16 @@
   <form id="add_prop" method="post" action="../actions/action_add_property.php">
   <h1>Add Property</h1>
   <!-- One "tab" for each step in the form: -->
-  <div class="tab"><h2>Title</h2>
+  <div class="tab"><h2>Information</h2>
     <input type="text" placeholder="title" oninput="this.className = ''" name="title" required></<input>
     <input type="text" placeholder="description" oninput="this.className = ''" name="description" required></<input>
+     <input type="text" placeholder="location" oninput="this.className = ''" name="location" required></<input>
   </div>
-  <div class="tab"><h2>Dates</h2>
-    <input type="date" placeholder="beginning date" oninput="this.className = ''" name="begin_date" required></<input>
-    <input type="date" placeholder="end_date" oninput="this.className = ''" name="end_date" required></<input>
+  <div class="tab"><h2>Dates Available</h2>
+    <input type="date" placeholder="From" oninput="this.className = ''" name="start_date" required></<input>
+    <input type="date" placeholder="Until" oninput="this.className = ''" name="end_date" required></<input>
   </div>
-  <div class="tab"><h2>Price</h2>
+  <div class="tab"><h2>Pricing</h2>
     <input type="text" placeholder="price" oninput="this.className = ''" name="price" required></<input>
   </div>
   <div class="button_prop" style="overflow:auto;">

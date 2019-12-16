@@ -6,7 +6,6 @@
   $password = $_POST['password'];
   $newpassword = $_POST['newpassword'];
 
- print_r($password);
    if (empty($newusername)) {
        $newusername = $_SESSION['username'];
    }

@@ -30,11 +30,12 @@
   }
 
 
-  function addProperty($ownerID, $price, $title, $location, $description)
+  function addProperty($ownerID, $price, $title, $location, $description,$start,$end)
   {
       $db = Database::instance()->db();
-      $stmt = $db->prepare('INSERT INTO Properties VALUES(NULL, ?, ?, ?, ?, ?, NULL, NULL)');
-      $stmt->execute(array($ownerID, $price, $title, $location, $description));
+      $stmt = $db->prepare('INSERT INTO Properties VALUES(NULL, ?, ?, ?, ?, ?, ?, ?)');
+      $stmt->execute(array($ownerID, $price, $title, $location, $description,$start,$end));
+      return 1;
   }
 
  
