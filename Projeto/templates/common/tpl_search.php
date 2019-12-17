@@ -7,7 +7,7 @@
 
     <header><h2>Search a Place</h2></header>
 
-    <form method="post" action="../actions/action_search.php">
+    <form method="post" action="../pages/rental.php">
       <input type="search" name="location" placeholder="location">
       <input type="range" name="price" min="0" max="1000" value="500" id="range_slider_input">
       <p>Price: <span id="price_range"></span>€</p>

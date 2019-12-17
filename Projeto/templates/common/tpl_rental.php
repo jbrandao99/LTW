@@ -19,7 +19,7 @@ function draw_rentals($rentals)
     {
         ?>
   <section class="add_menu">
-    <button type="button" onclick="window.location.href='../pages/add_property.php'" >Add Property</button>
+    <button type="button" onclick="window.location.href='../pages/addproperty.php'" >Add Property</button>
   </section>
 <?php
     } ?>

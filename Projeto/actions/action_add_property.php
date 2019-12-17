@@ -15,9 +15,16 @@
   $title = $_POST['title'];
   $description = $_POST['description'];
   $location = $_POST['location'];
+  $price = $_POST['price'];
   $start = $_POST['start_date'];
   $end = $_POST['end_date'];
-  $price = $_POST['price'];
+
+  if($start>$end)
+  {
+      $temp = $start;
+      $start = $end;
+      $end = $temp;
+  }
 
   $pattern = "/^[a-z A-Z]+$/";
   if (!preg_match($pattern, $title)) {
