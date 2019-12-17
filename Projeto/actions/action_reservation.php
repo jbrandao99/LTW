@@ -29,7 +29,7 @@
  
 if (addReservation($property_id, $start, $end,$price)) {
     $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Succesfully added reservation');
-    die(header('Location: ../pages/rental.php'));
+    die(header('Location: ../pages/reservations.php'));
 } else {
     $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Failed to add reservation!');
     die(header('Location: ../pages/property.php'));

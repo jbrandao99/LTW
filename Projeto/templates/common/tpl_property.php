@@ -1,5 +1,7 @@
 <?php 
 include_once('../database/db_rental.php');
+include_once('../database/db_user.php');
+include_once('../database/db_reservations.php');
 include_once('../includes/session.php');
 
 function draw_property($property)
@@ -14,7 +16,28 @@ function draw_property($property)
     <h3>Description: <?=$property['description']?></h3>
     <h3>Location: <?=$property['location']?></h3>
     <h4>Price per night: <?=$property['price']?>€</h4>
-<div id="reservation">
+
+    <?php 
+    $reservations = getPropertyReservations($property['id']); ?>
+
+    <div id="listReservations">
+
+    <h3 id="reservations">List of Reservations</h3>
+
+    <?php if (count($reservations) == 0) { ?>
+    <h4> No reservations yet. </h4>
+    <?php } else { ?>
+    <div id="columnIdentifiers">
+      <h4 id="guestWord">Guest</h4>
+      <h4 id="datesWord">Check-in -> Check-Out</h4>
+    </div>
+    <?php foreach ($reservations as $reservation) {
+      draw_reservation($reservation);
+    }
+  } ?>
+  </div>
+
+  <div id="reservation">
           <form id="reservationForm" method="post" action="../actions/action_reservation.php">
             <input id="id" type='hidden' name='id' value='<?= $property['id'] ?>' />
             <input id="price" type='hidden' name='price' value='<?= $property['price'] ?>' />
@@ -99,3 +122,12 @@ function draw_property($property)
 
   <?php
     } ?>
+
+<?php function draw_reservation($reservation)
+  {
+  ?>
+  <div class="reservation">
+    <h4 id="guest"> <?= getUserbyID($reservation['touristID'])['username'] ?> </h4>
+    <h4 id="dates"> <?= $reservation['startDate'] ?> | <?= $reservation['endDate'] ?> </h4>
+  </div>
+<?php } ?>
