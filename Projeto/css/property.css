@@ -1,5 +1,8 @@
 .property {
   border-bottom: 1px solid #24252a;
+  padding-left: 10%;
+  padding-right: 10%;
+  background-color: #0088a9;
 }
 
 .property a {
@@ -18,6 +21,32 @@
   color: #edf0f1;
   background-color: #0088a9;
   padding: 5px;
+}
+
+.property main {
+  background-color: #0088a9;
+}
+
+.property button {
+  color: #0088a9;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 15px 20px;
+  border: 2px solid #24252a;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  background-color: #edf0f1;
+  transition: all 0.3s ease 0s;
+  width: 100%;
+}
+
+.property button:not(:first-of-type) {
+  margin-bottom: 10px;
+}
+
+.property button i {
+  background-color: #edf0f1;
 }
 
 #add_prop {
@@ -120,4 +149,19 @@
 .step.finish {
   background-color: #0088a9;
   border: 2px solid #edf0f1;
+}
+
+.tab #profileDisplay {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  width: 200px;
+  height: 200px;
+  transition: all 0.3s ease 0s;
+}
+
+.tab #profileDisplay:hover {
+  box-shadow: 0 13px 15px 0 rgba(0, 0, 0, 0.2);
 }

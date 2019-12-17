@@ -1,10 +1,11 @@
-<?php function draw_rentals($rentals)
+<?php
+include_once('../database/db_rental.php');
+include_once('../database/db_user.php');
+
+function draw_rentals($rentals)
 {
     ?>
   <section class="rentals">
-
-  
-
   <?php
     foreach ($rentals as $rental) {
         draw_rental($rental);
@@ -18,7 +19,7 @@
     {
         ?>
   <section class="add_menu">
-    <button type="button" onclick="window.location.href='../pages/property.php'" >Add Property</button>
+    <button type="button" onclick="window.location.href='../pages/add_property.php'" >Add Property</button>
   </section>
 <?php
     } ?>
@@ -30,18 +31,30 @@
 <article>
   <header>
     <h2><?=$rental['title']?></h2>
-    <button><i class="far fa-edit fa-2x"></i></button>
-    <button><i class="fas fa-trash fa-2x"></i></button>
   </header>
 
   <main>
+    <?php 
+    
+    $photos = getPropertyPhotos($rental['id']); ?>
+    <div class="row">
+    <?php foreach ($photos as $photo) { ?>
+      <div class="column">
+        <img alt="Property Image" src="../images/properties/<?php echo $photo['path']; ?>"/>
+        </div>
+    <?php } ?>
+    </div>
     <h3>Description: <?=$rental['description']?></h3>
     <h3>Location: <?=$rental['location']?></h3>
     <h4>Price per night: <?=$rental['price']?>€</h4> 
   </main>
 
+  <?php
+
+  $username = getUserbyID($rental['ownerID']);
+      ?>
   <footer>
-    <h5>By: <?=$rental['ownerID']?></h5> 
+    <h5>By: <?=$username['username']?></h5> 
   </footer>
 
 </article>

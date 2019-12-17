@@ -14,6 +14,7 @@
 }
 
 .rental h3 {
+  margin-top: -5px;
   text-align: center;
 }
 
@@ -28,6 +29,25 @@
   color: #edf0f1;
 }
 
+.rental img {
+  width: 300px;
+  height: 300px;
+  border-radius: 5px;
+}
+
+.rental .row {
+  width: 100%;
+  display: inline-block;
+  background-color: #0088a9;
+}
+
+.rental .column {
+  float: left;
+  width: 33.33%;
+  text-align: center;
+  background-color: #0088a9;
+}
+
 .rental button {
   display: inline;
   border: none;
@@ -38,8 +58,6 @@
 
 .rental header {
   background-color: #0088a9;
-  display: flex;
-  justify-content: space-between;
 }
 
 .rental h2 {
@@ -76,6 +94,6 @@
 }
 
 .add_menu button:hover {
-  opacity: 0.8;
+  opacity: 0.9;
   box-shadow: 0 13px 15px 0 rgba(0, 0, 0, 0.2);
 }

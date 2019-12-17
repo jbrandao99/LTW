@@ -12,3 +12,8 @@ function displayImage(e) {
         reader.readAsDataURL(e.files[0]);
     }
 }
+
+function createImage(element) {
+    var newImageProp = element.parentElement.cloneNode(true);
+    document.getElementsByClassName("tab")[3].appendChild(newImageProp);
+}

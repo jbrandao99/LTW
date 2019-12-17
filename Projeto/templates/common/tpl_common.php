@@ -36,7 +36,6 @@
               <li><h1><a href="login.php" ><i class="fab fa-accusoft"></i> Rent-a-Place</a></h1></li>
               <li class="right_links"><a id="logout" href="../actions/action_logout.php">Logout</a></li>
               <li class="right_links"><a href="profile.php"><?=$username?></a></li>
-              <li class="right_links"><a href="messages.php">Messages</a></li>
               <li class="right_links"><a href="reservations.php">Reservations</a></li>
               <li class="right_links"><a href="manage.php">My Places</a></li>
             </ul>
