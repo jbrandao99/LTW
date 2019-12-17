@@ -10,9 +10,8 @@
       die(header('Location: ../pages/login.php'));
   }
 
-
   $property_id = $_POST['id'];
-  $price = $_POST['price'];
+  $priceperday = $_POST['price'];
   $start = $_POST['checkIn'];
   $end = $_POST['checkOut'];
 
@@ -22,9 +21,11 @@
       $start = $end;
       $end = $temp;
   }
+  $date1 = new DateTime($start);
+  $date2 = new DateTime($end);
 
- 
-  
+  $interval = $date1->diff($date2);
+  $price = $interval->days * $priceperday ;
  
 if (addReservation($property_id, $start, $end,$price)) {
     $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Succesfully added reservation');
