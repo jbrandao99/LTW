@@ -9,7 +9,7 @@
       die(header('Location: ../pages/login.php'));
   }
 
-  if (deleteProperty($_GET['id'])) {
+  if (!(deleteProperty($_GET['id']))) {
     $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Succesfully deleted property');
     die(header('Location: ../pages/manage.php'));
 } else {

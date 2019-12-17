@@ -21,11 +21,12 @@
       $start = $end;
       $end = $temp;
   }
-
+  
   $rentals = searchProperties($price,$location,$start,$end);
 
   if(empty($rentals))
   {
+    $_SESSION['messages'][] = array('type' => 'error', 'content' => 'No properties found');
     die(header('Location: search.php'));
   }
   

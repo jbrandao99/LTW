@@ -24,8 +24,18 @@
   function searchProperties($price,$location,$start,$end)
   {
     $db = Database::instance()->db();
-    $stmt = $db->prepare('SELECT * FROM Properties WHERE (price <= ? AND UPPER(location) = UPPER(?) AND availabilityStart <= ? AND availabilityEnd >= ?)');
-    $stmt->execute(array($price,$location,$start,$end));
+    if(empty($location))
+    {
+        $stmt = $db->prepare('SELECT * FROM Properties WHERE (price <= ? AND availabilityStart <= ? AND availabilityEnd >= ?)');
+        $stmt->execute(array($price,$start,$end));
+    }
+    else
+    {
+        $stmt = $db->prepare('SELECT * FROM Properties WHERE (price <= ? AND UPPER(location) = UPPER(?) AND availabilityStart <= ? AND availabilityEnd >= ?)');
+        $stmt->execute(array($price,$location,$start,$end));
+
+    }
+    
     return $stmt->fetchAll();
 
   }

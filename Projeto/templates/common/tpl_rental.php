@@ -54,7 +54,7 @@ function draw_rentals($rentals)
   $username = getUserbyID($rental['ownerID']);
       ?>
   <footer>
-    <h5>By: <?=$username['username']?></h5> 
+    <h5>By: <?=$username['name']?></h5> 
   </footer>
 
 </article>
