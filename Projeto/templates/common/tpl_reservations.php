@@ -1,4 +1,7 @@
-<?php function draw_userReservations($reservations)
+<?php
+include_once('../database/db_rental.php');
+
+function draw_userReservations($reservations)
 {
  ?>
     <h2>My reservations</h2>
@@ -23,7 +26,7 @@
                 foreach ($reservations as $reservation) { ?>
 
                 <div id="container">
-                    <?php draw_reservation($reservation); ?>
+                    <?php draw_reservations($reservation); ?>
                 </div>
 
             <?php } ?>
@@ -39,8 +42,9 @@
   <a href=<?php echo "../pages/property.php?id=" . $reservation['propertyID']; ?>>
             <div class="image">
             <?php 
-            $photos = getPropertyPhotos($reservation['propertyID']); ?>
-                <img src="<?= $photos[0]; ?>" alt="Error showing image">
+            $photos = getPropertyPhotos($reservation['propertyID']);
+            print_r($photos[0][path]); ?>
+                <img src="../images/properties/<?php echo $photos[0][path]; ?>" alt="Error showing image">
             </div>
             <div class="desc">
                 <div id="checkInCheckOut">

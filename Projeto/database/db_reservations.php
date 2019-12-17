@@ -16,7 +16,7 @@
   function getReservations()
  {
      $db = Database::instance()->db();
-    $touristID = getUser($_SESSION['username'])['id'];
+     $touristID = getUser($_SESSION['username'])['id'];
      $stmt = $db->prepare('SELECT * FROM Reservations WHERE touristID = ? ');
      $stmt->execute(array($touristID));
      return $stmt->fetchAll();
