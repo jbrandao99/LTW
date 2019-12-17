@@ -1,4 +1,8 @@
-<?php function draw_property($property)
+<?php 
+include_once('../database/db_rental.php');
+include_once('../includes/session.php');
+
+function draw_property($property)
 {
     ?>
 <article class="property">
@@ -10,11 +14,40 @@
     <h3>Description: <?=$property['description']?></h3>
     <h3>Location: <?=$property['location']?></h3>
     <h4>Price per night: <?=$property['price']?>€</h4>
+<div id="reservation">
+          <form id="reservationForm" method="post" action="../actions/action_reservation.php">
+            <input id="id" type='hidden' name='id' value='<?= $property['id'] ?>' />
+            <input id="price" type='hidden' name='price' value='<?= $property['price'] ?>' />
+            <div id="checkIn">
+              <label>Check-In</label>
+              <input id="checkIn" type="date" name="checkIn" required="required" onchange="updateMinMax(0); setTotalPrice(<?= $property['price'] ?>); clearMessage();">
+            </div>
+            <div id="checkOut">
+              <label>Check-Out</label>
+              <input id="checkOut" type="date" name="checkOut" required="required" onchange="updateMinMax(1); setTotalPrice(<?= $property['price'] ?>); clearMessage();">
+            </div>
+            <p id="totalPrice"></p>
+            <p id="message"></p>
+            <?php ?>
+            <input id="button" name="bookButton" type="submit" value="Book">
+          </form>
+        </div>
+    <?php
+    if((checkIsPropertyOwner($property['id'])))
+    {
+    ?>
     <button><i class="far fa-edit fa-2x"></i></button>
     <button onclick="window.location.href='../actions/delete_property.php?id=' + '<?= $property['id']?>'" ><i class="fas fa-trash fa-2x"></i></button>
+    <?php
+     }
+    ?>
+    
   </main>
 
 </article>
+<script src="../javascript/datefield.js"></script>
+
+
 <?php
 } ?>
 

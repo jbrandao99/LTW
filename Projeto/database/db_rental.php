@@ -1,6 +1,8 @@
 <?php
     include_once('../includes/database.php');
     include_once('../database/db_user.php');
+    include_once('../includes/session.php');
+
 
    function getAllProperties()
    {
@@ -28,13 +30,13 @@
 
   }
 
-  function checkIsPropertyOwner($username, $property_id)
+  function checkIsPropertyOwner($property_id)
   {
       $db = Database::instance()->db();
-      $user = getUser($username);
+      $user = getUser($_SESSION['username']);
 
       $stmt = $db->prepare('SELECT * FROM Properties WHERE ownerID = ? AND id = ?');
-      $stmt->execute(array($username,$user['id'], $property_id));
+      $stmt->execute(array($user['id'], $property_id));
       return $stmt->fetch()?true:false;
   }
 
