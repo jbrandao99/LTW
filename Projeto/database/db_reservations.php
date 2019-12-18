@@ -7,15 +7,13 @@
     function addReservation($property_id, $start, $end, $price)
     {
         $db = Database::instance()->db();
-        if(checkReservationConflict($property_id,$start,$end))
-        {
-        $stmt = $db->prepare('INSERT INTO Reservations VALUES(NULL, ?, ?, ?,?,?)');
-        $touristID = getUser($_SESSION['username'])['id'];
-        $stmt->execute(array($touristID,$property_id,$start,$end,$price));
-        return 1; 
+        if (checkReservationConflict($property_id, $start, $end)) {
+            $stmt = $db->prepare('INSERT INTO Reservations VALUES(NULL, ?, ?, ?,?,?)');
+            $touristID = getUser($_SESSION['username'])['id'];
+            $stmt->execute(array($touristID,$property_id,$start,$end,$price));
+            return 1;
         }
         return 0;
-        
     }
 
   function getReservations()
@@ -35,12 +33,12 @@
      return $stmt->fetchAll();
  }
 
- function checkReservationConflict($property_id,$start,$end)
+ function checkReservationConflict($property_id, $start, $end)
  {
-    $db = Database::instance()->db();
-    $stmt = $db->prepare('SELECT * FROM Reservations WHERE propertyID = ? AND (startDate >= ? AND startDate <= ? OR endDate >= ? AND endDate <= ?)');
-    $stmt->execute(array($property_id,$start,$end,$start,$end));
-    return empty($stmt->fetchAll());
+     $db = Database::instance()->db();
+     $stmt = $db->prepare('SELECT * FROM Reservations WHERE propertyID = ? AND (startDate >= ? AND startDate <= ? OR endDate >= ? AND endDate <= ?)');
+     $stmt->execute(array($property_id,$start,$end,$start,$end));
+     return empty($stmt->fetchAll());
  }
 
    function removeReservation($reservationID)

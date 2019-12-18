@@ -72,32 +72,4 @@ function draw_userReservations($reservations)
     </div>
   </article>
 </main>
-
-
-
-
-
-
-
-
-
-
-  <!-- <a href=<?php echo "../pages/property.php?id=" . $reservation['propertyID']; ?>>
-            <div class="image">
-            <?php
-            $photos = getPropertyPhotos($reservation['propertyID']); ?>
-                <img src="../images/properties/<?php echo $photos[0]['path']; ?>" alt="Error showing image">
-            </div>
-            <div class="desc">
-                <div id="checkInCheckOut">
-                    
-                    <p id="checkIn"><h3>Check-In: <?= $reservation['startDate'] ?></h3></p>
-                    <p id="checkOut"><h3>Check-Out: <?= $reservation['endDate'] ?></h3></p>
-                    
-                </div>
-            </div>
-        </a> -->
-
-        
-<?php
-                } ?>
+<?php } ?>

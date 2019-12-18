@@ -26,9 +26,8 @@ function draw_rentals($rentals)
 
 <?php function draw_rental($rental)
     {
-    $photos = getPropertyPhotos($rental['id']);
-    $username = getUserbyID($rental['ownerID']); 
-        ?>
+        $photos = getPropertyPhotos($rental['id']);
+        $username = getUserbyID($rental['ownerID']); ?>
 <a href="property.php?id=<?=$rental['id']?> " class="rental">
 <article>
 
