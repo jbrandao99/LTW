@@ -30,18 +30,13 @@ function draw_rentals($rentals)
         $username = getUserbyID($rental['ownerID']); ?>
 <a href="property.php?id=<?=$rental['id']?> " class="rental">
 <article>
-
-    <h2><?=$rental['title']?></h2>
-
-
   <main>
-  
     <div class="row">
-    
       <div class="column">
         <img alt="Property Image" src="../images/properties/<?php echo $photos[0]['path']; ?>"/> 
       </div>
       <div class="column">
+        <h2><?=$rental['title']?></h2>
         <h3>Description: <?=$rental['description']?></h3>
         <h3>Location: <?=$rental['location']?></h3>
         <h4>Price per night: <?=$rental['price']?>€</h4> 

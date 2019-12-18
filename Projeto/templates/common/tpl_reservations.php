@@ -45,20 +45,15 @@ function draw_userReservations($reservations)
                     ?>
 <a href="../pages/property.php?id=<?=$reservation['propertyID']?> " class="rental">
 <article>
-  <header>
-    <h2><?=$rental['title']?></h2>
-  </header>
-
   <main>
-    
     <div class="row">
-    
-      <div class="column">
+        <div class="column">
         <img src="../images/properties/<?php echo $photos[0]['path'];?>" alt="Property Image"/>
         </div>
     
-    </a>
+  
     <div class="column">
+    <h2><?=$rental['title']?></h2>
     <h3>Location: <?=$rental['location']?></h3>
     <h3>Price: <?=$reservation['price']?>€</h3> 
     <p id="checkIn"><h3>Check-In: <?= $reservation['startDate'] ?></h3></p>
@@ -70,6 +65,6 @@ function draw_userReservations($reservations)
         </form>
     </div>
     </div>
-  </article>
+  </article>  </a>
 </main>
 <?php } ?>
