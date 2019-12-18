@@ -39,8 +39,50 @@ function draw_userReservations($reservations)
                 {
                     /**
                      * Draws the reservations section.
-                     */ ?>
-  <a href=<?php echo "../pages/property.php?id=" . $reservation['propertyID']; ?>>
+                     */
+                   $rental=  getProperty($reservation['propertyID']);
+                   $photos = getPropertyPhotos($rental['id']); 
+                    ?>
+<a href="../pages/property.php?id=<?=$reservation['propertyID']?> " class="rental">
+<article>
+  <header>
+    <h2><?=$rental['title']?></h2>
+  </header>
+
+  <main>
+    
+    <div class="row">
+    
+      <div class="column">
+        <img src="../images/properties/<?php echo $photos[0]['path'];?>" alt="Property Image"/>
+        </div>
+    
+    </a>
+    <div class="column">
+    <h3>Location: <?=$rental['location']?></h3>
+    <h3>Price: <?=$reservation['price']?>€</h3> 
+    <p id="checkIn"><h3>Check-In: <?= $reservation['startDate'] ?></h3></p>
+    <p id="checkOut"><h3>Check-Out: <?= $reservation['endDate'] ?></h3></p>
+    <form id="deleteReservation" action="../actions/action_removeReservation.php" method="post">
+            <input type="hidden" id="reservation_id" name="reservation_id" value="<?= $reservation['id'] ?> ">
+            <input type="hidden" id="csrf" name="csrf" value="<?=$_SESSION['csrf']?>">           
+            <input id="button" type="submit" value="Cancel">
+        </form>
+    </div>
+    </div>
+  </article>
+</main>
+
+
+
+
+
+
+
+
+
+
+  <!-- <a href=<?php echo "../pages/property.php?id=" . $reservation['propertyID']; ?>>
             <div class="image">
             <?php
             $photos = getPropertyPhotos($reservation['propertyID']); ?>
@@ -48,20 +90,14 @@ function draw_userReservations($reservations)
             </div>
             <div class="desc">
                 <div id="checkInCheckOut">
-                    <p id="checkIn">Check In</p>
-                    <p id="checkOut">Check Out</p>
-                </div>
-                <div id="dates">
-                    <p id="checkIn"> <?= $reservation['startDate'] ?> </p>
-                    <p id="checkOut"> <?= $reservation['endDate'] ?> </p>
+                    
+                    <p id="checkIn"><h3>Check-In: <?= $reservation['startDate'] ?></h3></p>
+                    <p id="checkOut"><h3>Check-Out: <?= $reservation['endDate'] ?></h3></p>
+                    
                 </div>
             </div>
-        </a>
+        </a> -->
 
-        <form id="deleteReservation" action="../actions/action_removeReservation.php" method="post">
-            <input type="hidden" id="reservation_id" name="reservation_id" value="<?= $reservation['id'] ?> ">
-            <input type="hidden" id="csrf" name="csrf" value="<?=$_SESSION['csrf']?>">           
-            <input id="button" type="submit" value="Cancel">
-        </form>
+        
 <?php
                 } ?>

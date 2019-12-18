@@ -41,14 +41,9 @@ function draw_property($property)
           <form id="reservationForm" method="post" action="../actions/action_reservation.php">
             <input id="id" type='hidden' name='id' value='<?= $property['id'] ?>' />
             <input id="price" type='hidden' name='price' value='<?= $property['price'] ?>' />
-            <div id="checkIn">
-              <label>Check-In</label>
-              <input id="checkIn" type="date" name="checkIn" required="required" onchange="updateMinMax(0); setTotalPrice(<?= $property['price'] ?>); clearMessage();">
-            </div>
-            <div id="checkOut">
-              <label>Check-Out</label>
-              <input id="checkOut" type="date" name="checkOut" required="required" onchange="updateMinMax(1); setTotalPrice(<?= $property['price'] ?>); clearMessage();">
-            </div>
+            <input type="text" placeholder="Check-In" onchange="updateCheckout()"  onfocus="(this.type='date')" oninput="this.className = ''" name="checkIn" required></<input>
+    <input type="text" placeholder="Check-Out" onfocus="(this.type='date')" oninput="this.className = ''" name="checkOut" required></<input>
+           
             <p id="totalPrice"></p>
             <p id="message"></p>
             <?php ?>
