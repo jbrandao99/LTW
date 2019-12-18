@@ -1,5 +1,5 @@
 <?php
-include_once('../database/db_rental.php');
+include_once('../database/db_properties.php');
 
 function draw_userReservations($reservations)
 {

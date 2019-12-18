@@ -1,6 +1,6 @@
 <?php
   include_once('../includes/session.php');
-  include_once('../database/db_rental.php');
+  include_once('../database/db_properties.php');
   include_once('../database/db_user.php');
   include_once('../database/db_reservations.php');
 
