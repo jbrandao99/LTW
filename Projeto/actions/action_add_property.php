@@ -19,8 +19,7 @@
   $start = $_POST['start_date'];
   $end = $_POST['end_date'];
 
-  if($start>$end)
-  {
+  if ($start>$end) {
       $temp = $start;
       $start = $end;
       $end = $temp;

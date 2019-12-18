@@ -10,8 +10,7 @@
   }
    $property = getProperty($_GET['id']);
   draw_header($_SESSION['username']);
-  if(isset($property))
-  {
-  draw_property($property);
+  if (isset($property)) {
+      draw_property($property);
   }
   draw_footer();

@@ -10,9 +10,9 @@
   }
 
   if (!(deleteProperty($_GET['id']))) {
-    $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Succesfully deleted property');
-    die(header('Location: ../pages/manage.php'));
-} else {
-    $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Failed to delete property!');
-    die(header('Location: ../pages/property.php'));
-}
+      $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Succesfully deleted property');
+      die(header('Location: ../pages/manage.php'));
+  } else {
+      $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Failed to delete property!');
+      die(header('Location: ../pages/property.php'));
+  }

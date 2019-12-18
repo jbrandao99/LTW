@@ -1,4 +1,4 @@
-<?php 
+<?php
 include_once('../database/db_rental.php');
 include_once('../database/db_user.php');
 include_once('../database/db_reservations.php');
@@ -17,7 +17,7 @@ function draw_property($property)
     <h3>Location: <?=$property['location']?></h3>
     <h4>Price per night: <?=$property['price']?>€</h4>
 
-    <?php 
+    <?php
     $reservations = getPropertyReservations($property['id']); ?>
 
     <div id="listReservations">
@@ -32,7 +32,7 @@ function draw_property($property)
       <h4 id="datesWord">Check-in -> Check-Out</h4>
     </div>
     <?php foreach ($reservations as $reservation) {
-      draw_reservation($reservation);
+        draw_reservation($reservation);
     }
   } ?>
   </div>
@@ -56,14 +56,12 @@ function draw_property($property)
           </form>
         </div>
     <?php
-    if((checkIsPropertyOwner($property['id'])))
-    {
-    ?>
+    if ((checkIsPropertyOwner($property['id']))) {
+        ?>
     <button><i class="far fa-edit fa-2x"></i></button>
     <button onclick="window.location.href='../actions/delete_property.php?id=' + '<?= $property['id']?>'" ><i class="fas fa-trash fa-2x"></i></button>
     <?php
-     }
-    ?>
+    } ?>
     
   </main>
 
@@ -124,10 +122,11 @@ function draw_property($property)
     } ?>
 
 <?php function draw_reservation($reservation)
-  {
-  ?>
+    {
+        ?>
   <div class="reservation">
     <h4 id="guest"> <?= getUserbyID($reservation['touristID'])['username'] ?> </h4>
     <h4 id="dates"> <?= $reservation['startDate'] ?> | <?= $reservation['endDate'] ?> </h4>
   </div>
-<?php } ?>
+<?php
+    } ?>

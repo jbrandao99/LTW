@@ -15,8 +15,7 @@
   $start = $_POST['checkIn'];
   $end = $_POST['checkOut'];
 
-  if($start>$end)
-  {
+  if ($start>$end) {
       $temp = $start;
       $start = $end;
       $end = $temp;
@@ -27,7 +26,7 @@
   $interval = $date1->diff($date2);
   $price = $interval->days * $priceperday ;
  
-if (addReservation($property_id, $start, $end,$price)) {
+if (addReservation($property_id, $start, $end, $price)) {
     $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Succesfully added reservation');
     die(header('Location: ../pages/reservations.php'));
 } else {

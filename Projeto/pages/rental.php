@@ -15,19 +15,17 @@
   $start = $_POST['begin_date'];
   $end = $_POST['end_date'];
 
- if($start>$end)
-  {
-      $temp = $start;
-      $start = $end;
-      $end = $temp;
-  }
+ if ($start>$end) {
+     $temp = $start;
+     $start = $end;
+     $end = $temp;
+ }
   
-  $rentals = searchProperties($price,$location,$start,$end);
+  $rentals = searchProperties($price, $location, $start, $end);
 
-  if(empty($rentals))
-  {
-    $_SESSION['messages'][] = array('type' => 'error', 'content' => 'No properties found');
-    die(header('Location: search.php'));
+  if (empty($rentals)) {
+      $_SESSION['messages'][] = array('type' => 'error', 'content' => 'No properties found');
+      die(header('Location: search.php'));
   }
   
   draw_header($_SESSION['username']);

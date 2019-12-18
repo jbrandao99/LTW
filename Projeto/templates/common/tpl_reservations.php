@@ -3,7 +3,7 @@ include_once('../database/db_rental.php');
 
 function draw_userReservations($reservations)
 {
- ?>
+    ?>
     <h2>My reservations</h2>
 
     <?php if (isset($_SESSION['messages'])) { ?>
@@ -12,7 +12,7 @@ function draw_userReservations($reservations)
           <div class="<?= $message['type'] ?>"><?= $message['content'] ?></div>
         <?php } ?>
       </h4>
-    <?php unset($_SESSION['messages']); 
+    <?php unset($_SESSION['messages']);
     } ?>
     
     <?php if (count($reservations) == 0) { ?>
@@ -32,16 +32,17 @@ function draw_userReservations($reservations)
             <?php } ?>
 
         </section>
-    <?php } ?>
+    <?php
+} ?>
 
 <?php function draw_reservations($reservation)
-{
-    /**
-     * Draws the reservations section.
-     */ ?>
+                {
+                    /**
+                     * Draws the reservations section.
+                     */ ?>
   <a href=<?php echo "../pages/property.php?id=" . $reservation['propertyID']; ?>>
             <div class="image">
-            <?php 
+            <?php
             $photos = getPropertyPhotos($reservation['propertyID']); ?>
                 <img src="../images/properties/<?php echo $photos[0]['path']; ?>" alt="Error showing image">
             </div>
@@ -63,4 +64,4 @@ function draw_userReservations($reservations)
             <input id="button" type="submit" value="Cancel">
         </form>
 <?php
-} ?>
+                } ?>

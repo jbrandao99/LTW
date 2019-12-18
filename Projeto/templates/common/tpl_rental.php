@@ -34,7 +34,7 @@ function draw_rentals($rentals)
   </header>
 
   <main>
-    <?php 
+    <?php
     
     $photos = getPropertyPhotos($rental['id']); ?>
     <div class="row">
@@ -51,8 +51,7 @@ function draw_rentals($rentals)
 
   <?php
 
-  $username = getUserbyID($rental['ownerID']);
-      ?>
+  $username = getUserbyID($rental['ownerID']); ?>
   <footer>
     <h5>By: <?=$username['name']?></h5> 
   </footer>

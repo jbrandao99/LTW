@@ -16,19 +16,17 @@ if (!preg_match("/^[a-zA-Z0-9]+$/", $newusername)) {
     $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Username can only contain letters and numbers!');
     die(header('Location: ../pages/profile.php'));
 }
-  $filetype = $_FILES['profilePicture']['type'];
 
-  if ($filetype == "image/jpeg") {
-      $type = ".jpg";
-  } else {
-      $type = ".png";
-  }
-  
-   $profilePicture = $newusername.$type;
+    $hash = sha1($newusername);
+   $profilePicture = $hash.".jpg";
    $target = '../images/users/' . $profilePicture;
 
- if (editUser($newusername, $password, $newpassword, $profilePicture)) {
-     move_uploaded_file($_FILES['profilePicture']['tmp_name'], $target);
+    
+ if (editUser($newusername, $password, $newpassword)) {
+     if ($_FILES['profilePicture']['error']== 0) {
+         editProfilePicture($password, $profilePicture);
+         move_uploaded_file($_FILES['profilePicture']['tmp_name'], $target);
+     }
      $_SESSION['username'] = $newusername;
      $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Succesfully edited your profile');
      die(header('Location: ../pages/search.php'));

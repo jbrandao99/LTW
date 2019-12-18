@@ -3,8 +3,8 @@ include_once '../database/db_reservations.php';
 
 // Verifies CSRF token
 if ($_SESSION['csrf'] != $_POST['csrf']) {
-   //$_SESSION['messages'][] = array('type' => 'error', 'content' => 'Invalid request!');
-   die(header('Location: ../pages/reservations.php'));
+    //$_SESSION['messages'][] = array('type' => 'error', 'content' => 'Invalid request!');
+    die(header('Location: ../pages/reservations.php'));
 }
 
 $reservation_id = $_POST['reservation_id'];

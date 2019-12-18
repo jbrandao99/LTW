@@ -21,23 +21,18 @@
       return $stmt->fetchAll();
   }
 
-  function searchProperties($price,$location,$start,$end)
+  function searchProperties($price, $location, $start, $end)
   {
-    $db = Database::instance()->db();
-    if(empty($location))
-    {
-        $stmt = $db->prepare('SELECT * FROM Properties WHERE (price <= ? AND availabilityStart <= ? AND availabilityEnd >= ?)');
-        $stmt->execute(array($price,$start,$end));
-    }
-    else
-    {
-        $stmt = $db->prepare('SELECT * FROM Properties WHERE (price <= ? AND UPPER(location) = UPPER(?) AND availabilityStart <= ? AND availabilityEnd >= ?)');
-        $stmt->execute(array($price,$location,$start,$end));
-
-    }
+      $db = Database::instance()->db();
+      if (empty($location)) {
+          $stmt = $db->prepare('SELECT * FROM Properties WHERE (price <= ? AND availabilityStart <= ? AND availabilityEnd >= ?)');
+          $stmt->execute(array($price,$start,$end));
+      } else {
+          $stmt = $db->prepare('SELECT * FROM Properties WHERE (price <= ? AND UPPER(location) = UPPER(?) AND availabilityStart <= ? AND availabilityEnd >= ?)');
+          $stmt->execute(array($price,$location,$start,$end));
+      }
     
-    return $stmt->fetchAll();
-
+      return $stmt->fetchAll();
   }
 
   function checkIsPropertyOwner($property_id)
@@ -68,10 +63,10 @@
       return $stmt->fetch();
   }
   function deleteProperty($property_id)
-  {   
-    $db = Database::instance()->db();
-    $stmt = $db->prepare('DELETE FROM Properties WHERE id = ?');
-    $stmt->execute(array($property_id));
+  {
+      $db = Database::instance()->db();
+      $stmt = $db->prepare('DELETE FROM Properties WHERE id = ?');
+      $stmt->execute(array($property_id));
   }
 
   function addPropertyPhoto($property_id, $path, $description)

@@ -13,15 +13,9 @@
       die(header('Location: ../pages/signup.php'));
   }
   
-  $filetype = $_FILES['profilePicture']['type'];
-
-  if ($filetype == "image/jpeg") {
-      $type = ".jpg";
-  } else {
-      $type = ".png";
-  }
   
-   $profilePicture = $username.$type;
+   $hash = sha1($username);
+   $profilePicture = $hash.".jpg";
    $target = '../images/users/' . $profilePicture;
 
   // Don't allow certain characters
@@ -30,7 +24,7 @@
   try {
       insertUser($username, $email, $password, $name, $profilePicture);
       if ($_FILES['profilePicture']['error']==4) {
-          copy("../images/site/placeholder.png", $target);
+          copy("../images/site/placeholder.jpg", $target);
       } else {
           move_uploaded_file($_FILES['profilePicture']['tmp_name'], $target);
       }

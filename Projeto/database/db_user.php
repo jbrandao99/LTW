@@ -26,18 +26,30 @@
       $stmt->execute(array($username,$email, password_hash($password, PASSWORD_DEFAULT, $options),$name, $profilePicture));
   }
 
-  function editUser($newusername, $password, $newpassword, $profilePicture)
+  function editUser($newusername, $password, $newpassword)
   {
       $db = Database::instance()->db();
       $options = ['cost' => 12];
 
       $user = getUser($_SESSION['username']);
 
-      unlink('../images/users/'.$user['profilePicture']);
-
       if (checkUserPassword($user['username'], $password)) {
-          $stmt = "UPDATE Users SET password = ? , username = ? , profilePicture = ? WHERE id = ?";
-          $db->prepare($stmt)->execute([password_hash($newpassword, PASSWORD_DEFAULT, $options),$newusername,$profilePicture,$user['id']]);
+          $stmt = "UPDATE Users SET password = ? , username = ? WHERE id = ?";
+          $db->prepare($stmt)->execute([password_hash($newpassword, PASSWORD_DEFAULT, $options),$newusername,$user['id']]);
+          return 1;
+      }
+      return 0;
+  }
+
+  function editProfilePicture($password, $profilePicture)
+  {
+      $db = Database::instance()->db();
+      $options = ['cost' => 12];
+      $user = getUser($_SESSION['username']);
+      unlink('../images/users/'.$user['profilePicture']);
+      if (checkUserPassword($user['username'], $password)) {
+          $stmt = "UPDATE Users SET profilePicture = ? WHERE id = ?";
+          $db->prepare($stmt)->execute([$profilePicture,$user['id']]);
           return 1;
       }
       return 0;
