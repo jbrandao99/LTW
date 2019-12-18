@@ -7,6 +7,8 @@ include_once('../includes/session.php');
 function draw_property($property)
 {
     ?>
+     <title><?=$property['title']?></title>
+
 <article class="property">
   <header>
     <h2><?=$property['title']?></a></h2>
@@ -70,6 +72,8 @@ function draw_property($property)
 <?php function add_property()
     {
         ?>
+     <title>Add Property</title>
+
   <section class="add_property">
 
   <form id="add_prop" method="post" action="../actions/action_add_property.php" enctype="multipart/form-data">

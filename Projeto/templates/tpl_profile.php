@@ -7,6 +7,8 @@
     /**
      * Draws the signup section.
      */ ?>
+     <title>Edit Profile</title>
+
   <section class="profile">
 
     <header><h2>Edit Profile</h2></header>

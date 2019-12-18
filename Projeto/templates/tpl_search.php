@@ -3,6 +3,8 @@
     /**
      * Draws the search section.
      */ ?>
+     <title>Search Properties</title>
+
   <section class="search">
 
     <header><h2>Search a Place</h2></header>

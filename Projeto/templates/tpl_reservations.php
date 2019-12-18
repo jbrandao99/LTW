@@ -4,6 +4,8 @@ include_once('../database/db_properties.php');
 function draw_userReservations($reservations)
 {
     ?>
+     <title>My Reservations</title>
+
     <h2>My reservations</h2>
 
     <?php if (isset($_SESSION['messages'])) { ?>

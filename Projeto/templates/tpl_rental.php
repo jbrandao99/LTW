@@ -5,6 +5,8 @@ include_once('../database/db_user.php');
 function draw_rentals($rentals)
 {
     ?>
+     <title>Properties</title>
+
   <section class="rentals">
   <?php
     foreach ($rentals as $rental) {

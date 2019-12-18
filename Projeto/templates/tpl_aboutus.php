@@ -3,6 +3,7 @@
     /**
      * Draws the aboutus section.
      */ ?>
+     <title>About Us</title>
   <section class="aboutus">
     
     <header><h2>About Us</h2></header>

@@ -4,6 +4,7 @@
      * Draws the contact section.
      */ ?>
   <section class="contact">
+     <title>Contact Us</title>
 
     <header><h2>Contact Us</h2></header>
 
