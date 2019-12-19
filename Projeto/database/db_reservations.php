@@ -1,6 +1,7 @@
 <?php
-   include_once('../includes/database.php');
+    include_once('../includes/database.php');
     include_once('../database/db_user.php');
+    include_once('../database/db_properties.php');
     include_once('../includes/session.php');
 
 
@@ -36,9 +37,24 @@
  function checkReservationConflict($property_id, $start, $end)
  {
      $db = Database::instance()->db();
-     $stmt = $db->prepare('SELECT * FROM Reservations WHERE propertyID = ? AND (startDate >= ? AND startDate <= ? OR endDate >= ? AND endDate <= ?)');
-     $stmt->execute(array($property_id,$start,$end,$start,$end));
-     return empty($stmt->fetchAll());
+     $property = getProperty($property_id);
+     $pstart = $property['availabilityStart'];
+     $pend = $property['availabilityEnd'];
+
+    
+    $stmt = $db->prepare('SELECT *
+    FROM Reservations
+    WHERE propertyID = ? AND 
+    (startDate >= ? AND 
+    startDate <= ? OR 
+    endDate >= ? AND 
+    endDate <= ? OR
+    startDate <= ? AND 
+    endDate >= ?
+    )');
+    $stmt->execute(array($property_id,$start,$end,$start,$end,$start,$end));
+    return empty($stmt->fetchAll());
+   
  }
 
    function removeReservation($reservationID)

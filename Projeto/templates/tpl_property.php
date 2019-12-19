@@ -32,7 +32,6 @@ function draw_property($property)
     <h4> No reservations yet. </h4>
     <?php } else { ?>
     <div id="columnIdentifiers">
-      <h4 id="guestWord">Guest</h4>
       <h4 id="datesWord">Check-in -> Check-Out</h4>
     </div>
     <?php foreach ($reservations as $reservation) {
@@ -127,7 +126,7 @@ function draw_property($property)
     {
         ?>
   <div class="reservation">
-    <h4 id="guest"> <?= getUserbyID($reservation['touristID'])['username'] ?> </h4>
+    
     <h4 id="dates"> <?= $reservation['startDate'] ?> | <?= $reservation['endDate'] ?> </h4>
   </div>
 <?php

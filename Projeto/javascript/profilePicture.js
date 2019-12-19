@@ -1,3 +1,4 @@
+var i = 0;
 function pictureClick() {
     document.querySelector('#profilePicture').click();
 }
@@ -39,4 +40,3 @@ function createImageP(element) {
     displayImageP(element);
 }
 
-var i = 0;
