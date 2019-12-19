@@ -42,15 +42,14 @@ function draw_userReservations($reservations)
                     /**
                      * Draws the reservations section.
                      */
-                   $rental=  getProperty($reservation['propertyID']);
-                   $photos = getPropertyPhotos($rental['id']); 
-                    ?>
+                    $rental=  getProperty($reservation['propertyID']);
+                    $photos = getPropertyPhotos($rental['id']); ?>
 <a href="../pages/property.php?id=<?=$reservation['propertyID']?> " class="rental">
 <article>
   <main>
     <div class="row">
         <div class="column">
-        <img src="../images/properties/<?php echo $photos[0]['path'];?>" alt="Property Image"/>
+        <img src="../images/properties/<?php echo $photos[0]['path']; ?>" alt="Property Image"/>
         </div>
     
   
@@ -69,4 +68,5 @@ function draw_userReservations($reservations)
     </div>
   </article>  </a>
 </main>
-<?php } ?>
+<?php
+                } ?>

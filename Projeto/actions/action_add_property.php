@@ -41,11 +41,10 @@
  
     $property_id = addProperty($userID, $price, $title, $location, $description, $start, $end);
     
-    foreach($_FILES as $file)
-    {
+    foreach ($_FILES as $file) {
         $hash = sha1($file['name']).'.jpg';
-        addPropertyPhoto($property_id,$hash);
-        $target = '../images/properties/' . $hash; 
+        addPropertyPhoto($property_id, $hash);
+        $target = '../images/properties/' . $hash;
         move_uploaded_file($file['tmp_name'], $target);
     }
     $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Succesfully added property');

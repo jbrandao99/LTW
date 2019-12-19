@@ -16,15 +16,15 @@
       return $user !== false && password_verify($password, $user['password']);
   }
 
-  function checkIfUsernameExists($username) 
+  function checkIfUsernameExists($username)
   {
-    $db = Database::instance()->db();
+      $db = Database::instance()->db();
 
-    $stmt = $db->prepare('SELECT * FROM Users WHERE username = ?');
-    $stmt->execute(array($username));
+      $stmt = $db->prepare('SELECT * FROM Users WHERE username = ?');
+      $stmt->execute(array($username));
 
-    $user = $stmt->fetch();
-    return $user !== false;
+      $user = $stmt->fetch();
+      return $user !== false;
   }
 
   function insertUser($username, $email, $password, $name, $profilePicture)
