@@ -3,6 +3,7 @@
     /**
      * Draws the contact section.
      */ ?>
+     <title>Contact Us</title>
   <section class="contact">
      <title>Contact Us</title>
 

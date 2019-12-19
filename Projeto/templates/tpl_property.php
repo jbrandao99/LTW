@@ -94,7 +94,7 @@ function draw_property($property)
   <div class="tab"><h2>Images</h2>
   <div id="imageProp">
     <img src="../images/site/placeholder.png" onclick="pictureClick()" id="profileDisplay"/>
-    <input type="file" oninput="this.className = ''" onchange="displayImage(this); createImage(this)" style="display:none;" name="profilePicture" id="profilePicture" required></<input>
+    <input type="file" oninput="this.className = ''" onchange="createImage(this); displayImage(this) " style="display:none;" name="profilePicture" id="profilePicture" required></<input>
   </div>
   </div>
   <div class="button_prop" style="overflow:auto;">
