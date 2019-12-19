@@ -36,12 +36,7 @@
 
  function checkReservationConflict($property_id, $start, $end)
  {
-     $db = Database::instance()->db();
-     $property = getProperty($property_id);
-     $pstart = $property['availabilityStart'];
-     $pend = $property['availabilityEnd'];
-
-    
+    $db = Database::instance()->db();
     $stmt = $db->prepare('SELECT *
     FROM Reservations
     WHERE propertyID = ? AND 
