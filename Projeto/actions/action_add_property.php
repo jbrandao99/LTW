@@ -24,7 +24,7 @@
       $start = $end;
       $end = $temp;
   }
-
+  
   $pattern = "/^[a-z A-Z]+$/";
   if (!preg_match($pattern, $title)) {
       $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Title can only contain letters!');
@@ -39,10 +39,13 @@
       die(header('Location: ../pages/property.php'));
   }
  
-if (addProperty($userID, $price, $title, $location, $description, $start, $end)) {
+    $property_id = addProperty($userID, $price, $title, $location, $description, $start, $end);
     $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Succesfully added property');
-    die(header('Location: ../pages/rental.php'));
-} else {
-    $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Failed to add property!');
-    die(header('Location: ../pages/property.php'));
-}
+    foreach($_FILES as $file)
+    {
+        $hash = sha1($file['name']).'.jpg';
+        addPropertyPhoto($property_id,$hash);
+        $target = '../images/properties/' . $hash; 
+        move_uploaded_file($file['tmp_name'], $target);
+    }
+    die(header('Location: ../pages/manage.php'));

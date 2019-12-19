@@ -51,7 +51,8 @@
       $db = Database::instance()->db();
       $stmt = $db->prepare('INSERT INTO Properties VALUES(NULL, ?, ?, ?, ?, ?, ?, ?)');
       $stmt->execute(array($ownerID, $price, $title, $location, $description,$start,$end));
-      return 1;
+      $property_id = $db->lastInsertId();
+      return $property_id;
   }
 
  
@@ -69,11 +70,11 @@
       $stmt->execute(array($property_id));
   }
 
-  function addPropertyPhoto($property_id, $path, $description)
+  function addPropertyPhoto($property_id, $photo)
   {
       $db = Database::instance()->db();
-      $stmt = $db->prepare('INSERT INTO Photos VALUES(NULL, ?, ?, ?)');
-      $stmt->execute(array($description,$property_id,$path));
+      $stmt = $db->prepare('INSERT INTO Photos VALUES(NULL, ?, ?)');
+      $stmt->execute(array($property_id,$photo));
       return 1;
   }
   function removePropertyPhoto($photoID)
