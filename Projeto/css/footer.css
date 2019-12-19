@@ -22,3 +22,15 @@
 .footer_right a:hover {
   color: #0088a9;
 }
+
+@media screen and (max-width: 450px) {
+  #footer_links li {
+    float: none;
+    display: block;
+    text-align: center;
+    padding: 10px 10%;
+  }
+  .footer_right a {
+    float: none;
+  }
+}

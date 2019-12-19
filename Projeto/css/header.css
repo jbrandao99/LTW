@@ -95,3 +95,15 @@ body > #messages .success {
   color: #4f8a10;
   background-color: #dff2bf;
 }
+
+@media screen and (max-width: 900px) {
+  #header_links li {
+    float: none;
+    display: block;
+    text-align: center;
+    padding: 5px 10%;
+  }
+  .right_links a {
+    float: none;
+  }
+}
