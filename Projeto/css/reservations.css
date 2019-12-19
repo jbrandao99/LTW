@@ -1,0 +1,10 @@
+#reservation_label {
+  background-color: #0088a9;
+  color: #edf0f1;
+  transition: all 0.3s ease 0s;
+}
+
+#reservation_label:hover {
+  font-size: 20px;
+  color: #24252a;
+}

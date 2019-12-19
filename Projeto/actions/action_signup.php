@@ -20,8 +20,11 @@
 
   // Don't allow certain characters
   
-
-  try {
+  if (checkIfUsernameExists($username)) {
+    $_SESSION['messages'][] = array('type' => 'error', 'content' => 'There\'s already an acount with that username!');
+    die(header('Location: ../pages/signup.php'));
+  } else {
+    try {
       insertUser($username, $email, $password, $name, $profilePicture);
       if ($_FILES['profilePicture']['error']==4) {
           copy("../images/site/placeholder.jpg", $target);
@@ -36,3 +39,4 @@
       $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Failed to signup!');
       header('Location: ../pages/signup.php');
   }
+}

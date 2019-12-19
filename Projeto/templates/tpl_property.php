@@ -22,6 +22,8 @@ function draw_property($property)
     <?php
     $reservations = getPropertyReservations($property['id']); ?>
 
+    <h3>Available from: <?=$property['availabilityStart']?> to: <?=$property['availabilityEnd']?></h3>
+
     <div id="listReservations">
 
     <h3 id="reservations">List of Reservations</h3>

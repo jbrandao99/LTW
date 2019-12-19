@@ -40,7 +40,7 @@
   }
  
     $property_id = addProperty($userID, $price, $title, $location, $description, $start, $end);
-    $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Succesfully added property');
+    
     foreach($_FILES as $file)
     {
         $hash = sha1($file['name']).'.jpg';
@@ -48,4 +48,5 @@
         $target = '../images/properties/' . $hash; 
         move_uploaded_file($file['tmp_name'], $target);
     }
+    $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Succesfully added property');
     die(header('Location: ../pages/manage.php'));

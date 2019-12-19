@@ -18,7 +18,7 @@ function draw_userReservations($reservations)
     } ?>
     
     <?php if (count($reservations) == 0) { ?>
-        <h3> You haven't made a reservation yet. <a href="../pages/search.php" style="text-decoration:none">Get Started</a></h2>
+        <h3> You haven't made a reservation yet. <a id="reservation_label" href="../pages/search.php">Get Started</a></h3>
         <?php } ?>
 
         <section id="properties">
