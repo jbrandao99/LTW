@@ -31,6 +31,6 @@ if (addReservation($property_id, $start, $end, $price)) {
     $_SESSION['messages'][] = array('type' => 'success', 'content' => 'You have succesfully reserved '.$property['title']);
     die(header('Location: ../pages/reservations.php'));
 } else {
-    $_SESSION['messages'][] = array('type' => 'error', 'content' => $property['title'].' is already reserved during those days!');
+    $_SESSION['messages'][] = array('type' => 'error', 'content' => $property['title'].' is not available during those days!');
     die(header('Location: ../pages/property.php?id='.$property_id));
 }
