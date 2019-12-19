@@ -57,7 +57,7 @@ function draw_property($property)
     if ((checkIsPropertyOwner($property['id']))) {
         ?>
     <button><i class="far fa-edit fa-2x"></i></button>
-    <button onclick="window.location.href='../actions/delete_property.php?id=' + '<?= $property['id']?>'" ><i class="fas fa-trash fa-2x"></i></button>
+    <button onclick="window.location.href='../actions/action_delete_property.php?id=' + '<?= $property['id']?>'" ><i class="fas fa-trash fa-2x"></i></button>
     <?php
     } ?>
     
