@@ -25,7 +25,6 @@ function displayImageP(e) {
         var target2 = nodes[nodes.length - 1];
         reader.onload = function (e) {
             target.setAttribute('src', e.target.result);
-            console.log();
             target.nextElementSibling.setAttribute('name', 'picture' + i++);
             target2.setAttribute('src', "../images/site/image-placeholder.jpg");
         }
@@ -36,7 +35,6 @@ function displayImageP(e) {
 function createImageP(element) {
     var newImageProp = element.parentElement.cloneNode(true);
     var list = document.getElementsByClassName("tab")[3];
-    //newImageProp.setAttribute('name','picture'+i++);
     list.append(newImageProp);
     displayImageP(element);
 }
