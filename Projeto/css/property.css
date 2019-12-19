@@ -12,6 +12,10 @@
   background-color: #0088a9;
 }
 
+.property #listReservations {
+  border-top: 1px solid #edf0f1;
+}
+
 .property h3 {
   text-align: center;
 }

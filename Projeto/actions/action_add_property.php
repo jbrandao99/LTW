@@ -41,7 +41,7 @@
  
 if (addProperty($userID, $price, $title, $location, $description, $start, $end)) {
     $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Succesfully added property');
-    die(header('Location: ../pages/rental.php'));
+    die(header('Location: ../pages/search.php'));
 } else {
     $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Failed to add property!');
     die(header('Location: ../pages/property.php'));

@@ -35,7 +35,7 @@
     <header><h2>New Account</h2></header>
 
     <form method="post" action="../actions/action_signup.php" enctype="multipart/form-data">
-      <img src="../images/site/placeholder.png" onclick="pictureClick()" id="profileDisplay"/>
+      <img src="../images/site/placeholder.jpg" onclick="pictureClick()" id="profileDisplay"/>
       <label for="profilePicture">Profile Picture</label>
       <input type="file" name="profilePicture" onchange="displayImage(this)" id="profilePicture" style="display:none;">
       <input type="text" name="name" placeholder="full name" required>

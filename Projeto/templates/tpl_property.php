@@ -22,6 +22,8 @@ function draw_property($property)
     <?php
     $reservations = getPropertyReservations($property['id']); ?>
 
+    <h3>Available from: <?=$property['availabilityStart']?> to: <?=$property['availabilityEnd']?></h3>
+
     <div id="listReservations">
 
     <h3 id="reservations">List of Reservations</h3>
@@ -93,7 +95,7 @@ function draw_property($property)
   </div>
   <div class="tab"><h2>Images</h2>
   <div id="imageProp">
-    <img src="../images/site/placeholder.png" onclick="pictureClick()" id="profileDisplay"/>
+    <img src="../images/site/placeholder.jpg" onclick="pictureClick()" id="profileDisplay"/>
     <input type="file" oninput="this.className = ''" onchange="createImage(this); displayImage(this) " style="display:none;" name="profilePicture" id="profilePicture" required></<input>
   </div>
   </div>

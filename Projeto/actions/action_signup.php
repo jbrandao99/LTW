@@ -21,7 +21,7 @@
   // Don't allow certain characters
   
   if (checkIfUsernameExists($username)) {
-    $_SESSION['messages'][] = array('type' => 'error', 'content' => 'There\'s already an acount with that username.');
+    $_SESSION['messages'][] = array('type' => 'error', 'content' => 'There\'s already an acount with that username!');
     die(header('Location: ../pages/signup.php'));
   } else {
     try {
