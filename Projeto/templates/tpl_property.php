@@ -6,6 +6,7 @@ include_once('../includes/session.php');
 
 function draw_property($property)
 {
+  $photos = getPropertyPhotos($property['id']);
     ?>
      <title><?=$property['title']?></title>
      <script src="../ajax/comments.js" defer></script>
@@ -14,8 +15,37 @@ function draw_property($property)
   <header>
     <h2><?=$property['title']?></a></h2>
   </header>
-
   <main>
+<div class="row" >
+  <div class="column" name="profilePicture"  >
+    <img src="../images/properties/<?php echo $photos[0]['path']; ?>" onclick="openModal();currentSlide(1)" class="hover-shadow">
+  </div>
+</div>
+
+<div id="myModal" class="modal">
+  <span class="close cursor" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+
+    <div class="mySlides">
+      <div class="numbertext">1 / 3</div>
+      <img src="../images/properties/<?php echo $photos[0]['path']; ?>" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">2 / 3</div>
+      <img src="../images/properties/<?php echo $photos[1]['path']; ?>" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">3 / 3</div>
+      <img src="../images/properties/<?php echo $photos[2]['path']; ?>" style="width:100%">
+    </div>
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    
+  </div>
+</div> 
+  
     <h3>Description: <?=$property['description']?></h3>
     <h3>Location: <?=$property['location']?></h3>
     <h4>Price per night: <?=$property['price']?>€</h4>
@@ -77,6 +107,7 @@ function draw_property($property)
 
 </article>
 <script src="../javascript/datefield.js"></script>
+<script src="../javascript/pictures.js"></script>
 
 
 <?php
@@ -130,7 +161,7 @@ function draw_property($property)
 
 <script src="../javascript/add_property.js"></script>
 <script src="../javascript/datefield.js"></script>
-<script src="../javascript/profilePicture.js"></script>
+<script src="../javascript/pictures.js"></script>
 
   <?php
     } ?>
@@ -185,7 +216,7 @@ function draw_property($property)
 </section>
 
 <script src="../javascript/add_property.js"></script>
-<script src="../javascript/profilePicture.js"></script>
+<script src="../javascript/pictures.js"></script>
 
   <?php
     } ?>

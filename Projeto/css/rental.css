@@ -30,8 +30,10 @@
 }
 
 .rental img {
-  width: 300px;
-  height: 300px;
+  padding-top: 8px;
+  background-color: #0088a9;
+  width: 50%;
+  height: 50%;
   border-radius: 5px;
 }
 
