@@ -13,8 +13,8 @@
       <input type="search" name="location" placeholder="Location">
       <input type="range" name="price" min="0" max="500" value="250" id="range_slider_input">
       <p>Price per night: <span id="price_range"></span>€</p>
-      <input type="text" placeholder="Check-In" onchange="updateCheckout()"  onfocus="(this.type='date')" oninput="this.className = ''" name="begin_date" required></<input>
-    <input type="text" placeholder="Check-Out" onfocus="(this.type='date')" oninput="this.className = ''" name="end_date" required></<input>
+      <input type="text" placeholder="Check-In" onchange="updateCheckout()"  onfocus="(this.type='date')" oninput="this.className = ''" id="begin_date" name="begin_date" min="<?php echo date('Y-m-d'); ?>" required></<input>
+    <input type="text" placeholder="Check-Out" onfocus="(this.type='date')" oninput="this.className = ''"name="end_date"  id="end_date" required></<input>
       <input type="submit" value="Search">
     </form>
 

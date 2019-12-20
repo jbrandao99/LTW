@@ -45,8 +45,8 @@ function draw_property($property)
           <form id="reservationForm" method="post" action="../actions/action_reservation.php">
             <input id="id" type='hidden' name='id' value='<?= $property['id'] ?>' />
             <input id="price" type='hidden' name='price' value='<?= $property['price'] ?>' />
-            <input type="text" placeholder="Check-In" onchange="updateCheckout()"  onfocus="(this.type='date')" oninput="this.className = ''" name="checkIn" required></<input>
-    <input type="text" placeholder="Check-Out" onfocus="(this.type='date')" oninput="this.className = ''" name="checkOut" required></<input>
+            <input type="text" placeholder="Check-In" onchange="updateCheckout()"  onfocus="(this.type='date')" oninput="this.className = ''" name="checkIn" id="begin_date" min="<?php echo date('Y-m-d'); ?>" required></<input>
+    <input type="text" placeholder="Check-Out" onfocus="(this.type='date')" oninput="this.className = ''" name="checkOut" id="end_date" required></<input>
            
             <p id="totalPrice"></p>
             <p id="message"></p>
@@ -98,8 +98,8 @@ function draw_property($property)
      <input type="text" placeholder="location" oninput="this.className = ''" name="location" required></<input>
   </div>
   <div class="tab"><h2>Dates Available</h2>
-    <input type="text" placeholder="from" onfocus="(this.type='date')" oninput="this.className = ''" name="start_date" required></<input>
-    <input type="text" placeholder="until" onfocus="(this.type='date')" oninput="this.className = ''" name="end_date" required></<input>
+    <input type="text" placeholder="from" onfocus="(this.type='date')" oninput="this.className = ''" name="start_date" min="<?php echo date('Y-m-d'); ?>" id="begin_date" onchange="updateCheckout()" required></<input>
+    <input type="text" placeholder="until" onfocus="(this.type='date')" oninput="this.className = ''" id="end_date" name="end_date" required></<input>
   </div>
   <div class="tab"><h2>Pricing</h2>
     <input type="number" placeholder="price" oninput="this.className = ''" name="price" required></<input>
@@ -129,6 +129,7 @@ function draw_property($property)
 </section>
 
 <script src="../javascript/add_property.js"></script>
+<script src="../javascript/datefield.js"></script>
 <script src="../javascript/profilePicture.js"></script>
 
   <?php
