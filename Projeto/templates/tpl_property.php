@@ -68,7 +68,7 @@ function draw_property($property)
     <?php
     if ((checkIsPropertyOwner($property['id']))) {
         ?>
-    <button><i class="far fa-edit fa-2x"></i></button>
+    <button onclick="window.location.href='../pages/editproperty.php?id=' + '<?= $property['id']?>'" ><i class="far fa-edit fa-2x"></i></button>
     <button onclick="window.location.href='../actions/action_delete_property.php?id=' + '<?= $property['id']?>'" ><i class="fas fa-trash fa-2x"></i></button>
     <?php
     } ?>
@@ -142,4 +142,49 @@ function draw_property($property)
     <h4 id="dates"> <?= $reservation['startDate'] ?> | <?= $reservation['endDate'] ?> </h4>
   </div>
 <?php
+    } ?>
+
+    <?php function edit_property($property)
+    {
+        ?>
+     <title>Edit Property</title>
+
+  <section class="add_property">
+
+  <form id="add_prop" method="post" action="../actions/action_edit_property.php" enctype="multipart/form-data">
+  <h1>Edit Property</h1>
+  <!-- One "tab" for each step in the form: -->
+  <div class="tab"><h2>Information</h2>
+  <input type='hidden' placeholder="id" oninput="this.className = ''" name="id" value = "<?= $property['id'] ?>" display:none required></<input>
+    <input type="text" placeholder="title" oninput="this.className = ''" name="title" value = "<?= $property['title'] ?>"required></<input>
+    <input type="text" placeholder="description" oninput="this.className = ''" name="description" value = "<?= $property['description'] ?>" required></<input>
+     <input type="text" placeholder="location" oninput="this.className = ''" name="location" value = "<?= $property['location'] ?>" required></<input>
+  </div>
+  <div class="tab"><h2>Dates Available</h2>
+    <input type="text" placeholder="from" onfocus="(this.type='date')" oninput="this.className = ''" name="start_date" value = "<?= $property['availabilityStart'] ?>" required></<input>
+    <input type="text" placeholder="until" onfocus="(this.type='date')" oninput="this.className = ''" name="end_date" value = "<?= $property['availabilityEnd'] ?>" required></<input>
+  </div>
+  <div class="tab"><h2>Pricing</h2>
+    <input type="number" placeholder="price" oninput="this.className = ''" name="price" value = "<?= $property['price'] ?>" required></<input>
+  </div>
+  <div class="button_prop" style="overflow:auto;">
+    <div id="btn_prop" style="float:right;">
+      <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+      <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+    </div>
+  </div>
+  <!-- Circles which indicates the steps of the form: -->
+  <div style="text-align:center;margin-top:10px; padding-bottom:10px; background-color: #0088a9;">
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    </div>
+</form>
+
+</section>
+
+<script src="../javascript/add_property.js"></script>
+<script src="../javascript/profilePicture.js"></script>
+
+  <?php
     } ?>

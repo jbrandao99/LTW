@@ -18,8 +18,8 @@ if (isset($_GET['username']) && isset($_GET['text'])) {
   $userID = getUser($username)['id'];
   $text = $_GET['text'];
   // Insert Message
-  $stmt = $db->prepare("INSERT INTO Comments VALUES (null, ?, ?, ?, ?)");
-  $stmt->execute(array($text, $timestamp, $place_id, $userID));
+  $stmt = $db->prepare("INSERT INTO Comments VALUES (null, 1, ?, ?, ?)");
+  $stmt->execute(array($text, $place_id, $userID));
 }
 
 // Retrieve new messages

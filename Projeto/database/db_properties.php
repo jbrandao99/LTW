@@ -55,6 +55,13 @@
       return $property_id;
   }
 
+  function editProperty($id, $price, $title, $location, $description, $start, $end)
+  {
+      $db = Database::instance()->db();
+      $stmt = $db->prepare('UPDATE Properties SET price = ? , title = ? , location = ? , description = ? , availabilityStart = ? , availabilityEnd = ?  WHERE id = ?');
+      $stmt->execute(array($price, $title, $location, $description,$start,$end,$id));
+      return 1;
+  }
  
   function getProperty($property_id)
   {
