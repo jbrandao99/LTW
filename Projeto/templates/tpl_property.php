@@ -8,6 +8,7 @@ function draw_property($property)
 {
     ?>
      <title><?=$property['title']?></title>
+     <script src="../ajax/comments.js" defer></script>
 
 <article class="property">
   <header>
@@ -53,6 +54,17 @@ function draw_property($property)
             <input id="button" name="bookButton" type="submit" value="Book">
           </form>
         </div>
+
+        <div id="comments">
+        <h3>Comments </h3>
+        <div id="chat"></div>
+        <form id="chatForm">
+          <input type="hidden" name="username" value="<?= $_SESSION['username'] ?> ">
+          <input type="hidden" name="place_id" value="<?= $property['id'] ?> ">
+          <input type="text" name="message" placeholder="Say something nice about this place" pattern="[a-zA-Z\s.\-'!\?/]+">
+          <input id="button" type="submit" value="Comment">
+        </form>
+      </div>
     <?php
     if ((checkIsPropertyOwner($property['id']))) {
         ?>
