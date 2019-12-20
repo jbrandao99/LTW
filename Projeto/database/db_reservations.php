@@ -52,10 +52,27 @@
    
  }
 
-   function removeReservation($reservationID)
-   {
-       $db = Database::instance()->db();
-       $stmt = $db->prepare('DELETE FROM Reservations WHERE id =?');
-       $stmt->execute(array($reservationID));
-       return 1;
-   }
+function getReservation($reservationID)
+{
+    $db = Database::instance()->db();
+    $stmt = $db->prepare('SELECT * FROM Reservations WHERE id = ? ');
+    $stmt->execute(array($reservationID));
+    return $stmt->fetch();
+}
+
+function removeReservation($reservationID)
+{
+    $db = Database::instance()->db();
+    $reservation = getReservation($reservationID);
+    $date1=date_create(date('Y-m-d'));
+    $date2=date_create($reservation['startDate']);
+    $diff=date_diff($date1,$date2);
+    if($diff->d >= 14)
+    {
+        $stmt = $db->prepare('DELETE FROM Reservations WHERE id =?');
+        $stmt->execute(array($reservationID));
+        return 1;  
+    }
+    return 0;
+    
+}
