@@ -32,7 +32,7 @@
 }
 
 .property button {
- color: #0088a9;
+  color: #0088a9;
   font-size: 20px;
   font-weight: 500;
   padding: 15px 20px;
@@ -155,22 +155,18 @@
   border: 2px solid #edf0f1;
 }
 
- .row > .column {
+.row > .column {
   padding: 0 8px;
 }
-.column
-{
+.column {
   background-color: #0088a9;
   text-align: center;
-
 }
 .row:after {
   content: "";
   display: table;
   clear: both;
-
 }
-
 
 /* The Modal (background) */
 .modal {
@@ -257,7 +253,6 @@
   top: 0;
 }
 
-
 .active,
 .demo:hover {
   opacity: 1;
@@ -272,4 +267,21 @@ img.hover-shadow {
 
 .hover-shadow:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#comments {
+  background-color: #0088a9;
+}
+
+#messages .line,
+.time,
+.username,
+.message {
+  background-color: #0088a9;
+  color: #edf0f1;
+  padding: 10px 5px;
+}
+
+#send {
+  margin-bottom: 10px;
 }

@@ -51,6 +51,6 @@
 
   </section>
 
-  <script src="../javascript/profilePicture.js"></script>
+  <script src="../javascript/pictures.js"></script>
 <?php
     } ?>

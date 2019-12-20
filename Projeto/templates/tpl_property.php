@@ -74,12 +74,12 @@ function draw_property($property)
             <input id="id" type='hidden' name='id' value='<?= $property['id'] ?>' />
             <input id="price" type='hidden' name='price' value='<?= $property['price'] ?>' />
             <input type="text" placeholder="Check-In" onchange="updateCheckout()"  onfocus="(this.type='date')" oninput="this.className = ''" name="checkIn" id="begin_date" min="<?php echo date('Y-m-d'); ?>" required></<input>
-    <input type="text" placeholder="Check-Out" onfocus="(this.type='date')" oninput="this.className = ''" name="checkOut" id="end_date" required></<input>
+            <input type="text" placeholder="Check-Out" onfocus="(this.type='date')" oninput="this.className = ''" name="checkOut" id="end_date" required></<input>
            
             <p id="totalPrice"></p>
             <p id="message"></p>
             <?php ?>
-            
+            <input id="button" name="bookButton" type="submit" value="Book">
           </form>
         </div>
 
