@@ -18,9 +18,8 @@
 
   $userid = getUser($_SESSION['username'])['id'];
   $property= getProperty($id);
-  if($userid != $property['ownerID'])
-  {
-  die(header('Location: /pages/search.php'));
+  if ($userid != $property['ownerID']) {
+      die(header('Location: /pages/search.php'));
   }
 
   if ($start>$end) {
@@ -42,13 +41,10 @@
       $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Description can only contain letters and numbers!');
       die(header('Location: ../pages/manage.php'));
   }
-  if(editProperty($id, $price, $title, $location, $description, $start, $end))
-  {
+  if (editProperty($id, $price, $title, $location, $description, $start, $end)) {
       $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Edited Property successfully!');
       die(header('Location: ../pages/manage.php'));
-  }
-  else
-  {
+  } else {
       $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Description can only contain letters and numbers!');
-     die(header('Location: ../pages/manage.php'));
+      die(header('Location: ../pages/manage.php'));
   }

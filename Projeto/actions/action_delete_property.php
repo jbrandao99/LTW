@@ -10,9 +10,8 @@
   }
   $userid = getUser($_SESSION['username'])['id'];
   $propertyowner = getProperty($_GET['id'])['ownerID'];
-  if($userid != $propertyowner)
-  {
-  die(header('Location: search.php'));
+  if ($userid != $propertyowner) {
+      die(header('Location: search.php'));
   }
   if (!(deleteProperty($_GET['id']))) {
       $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Succesfully deleted property');

@@ -12,9 +12,8 @@
   }
   $userid = getUser($_SESSION['username'])['id'];
   $property= getProperty($_GET['id']);
-  if($userid != $property['ownerID'])
-  {
-  die(header('Location: search.php'));
+  if ($userid != $property['ownerID']) {
+      die(header('Location: search.php'));
   }
 
 

@@ -18,7 +18,21 @@
       <input type="submit" value="Search">
     </form>
 
+     <div id="chat"></div>
+
+    <form>
+      <input type="submit" value="Send">
+    </form>
+    <form action="#" method="get">
+    <label>Country:
+      <input id="country" name="country" type="text">
+    </label>
+    </form>
+    <ul id="suggestions">
+    </ul>
+
   </section>
+    <script src="../javascript/script.js" defer></script>
 
   <script src="../javascript/range_slider.js"></script>
   <script src="../javascript/datefield.js"></script>

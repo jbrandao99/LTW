@@ -36,8 +36,8 @@
 
  function checkReservationConflict($property_id, $start, $end)
  {
-    $db = Database::instance()->db();
-    $stmt = $db->prepare('SELECT *
+     $db = Database::instance()->db();
+     $stmt = $db->prepare('SELECT *
     FROM Reservations
     WHERE propertyID = ? AND 
     (startDate >= ? AND 
@@ -47,9 +47,8 @@
     startDate <= ? AND 
     endDate >= ?
     )');
-    $stmt->execute(array($property_id,$start,$end,$start,$end,$start,$end));
-    return empty($stmt->fetchAll());
-   
+     $stmt->execute(array($property_id,$start,$end,$start,$end,$start,$end));
+     return empty($stmt->fetchAll());
  }
 
 function getReservation($reservationID)
@@ -66,13 +65,11 @@ function removeReservation($reservationID)
     $reservation = getReservation($reservationID);
     $date1=date_create(date('Y-m-d'));
     $date2=date_create($reservation['startDate']);
-    $diff=date_diff($date1,$date2);
-    if($diff->d >= 14)
-    {
+    $diff=date_diff($date1, $date2);
+    if ($diff->d >= 14) {
         $stmt = $db->prepare('DELETE FROM Reservations WHERE id =?');
         $stmt->execute(array($reservationID));
-        return 1;  
+        return 1;
     }
     return 0;
-    
 }

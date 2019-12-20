@@ -6,10 +6,8 @@ include_once('../includes/session.php');
 
 function draw_property($property)
 {
-  $photos = getPropertyPhotos($property['id']);
-    ?>
+    $photos = getPropertyPhotos($property['id']); ?>
      <title><?=$property['title']?></title>
-     <script src="../ajax/comments.js" defer></script>
 
 <article class="property">
   <header>
@@ -81,19 +79,18 @@ function draw_property($property)
             <p id="totalPrice"></p>
             <p id="message"></p>
             <?php ?>
-            <input id="button" name="bookButton" type="submit" value="Book">
+            
           </form>
         </div>
 
         <div id="comments">
         <h3>Comments </h3>
-        <div id="chat"></div>
-        <form id="chatForm">
+        <div id="messages"></div>
           <input type="hidden" name="username" value="<?= $_SESSION['username'] ?> ">
-          <input type="hidden" name="place_id" value="<?= $property['id'] ?> ">
+          <input type="hidden" name="place_id" value="<?= $property['id']?> ">
           <input type="text" name="message" placeholder="Say something nice about this place" pattern="[a-zA-Z\s.\-'!\?/]+">
-          <input id="button" type="submit" value="Comment">
-        </form>
+           <button id = 'send'>Send Message</button> 
+       
       </div>
     <?php
     if ((checkIsPropertyOwner($property['id']))) {
@@ -102,10 +99,13 @@ function draw_property($property)
     <button onclick="window.location.href='../actions/action_delete_property.php?id=' + '<?= $property['id']?>'" ><i class="fas fa-trash fa-2x"></i></button>
     <?php
     } ?>
-    
+
   </main>
 
 </article>
+
+    <script src="../javascript/comments.js"  defer></script>
+
 <script src="../javascript/datefield.js"></script>
 <script src="../javascript/pictures.js"></script>
 
